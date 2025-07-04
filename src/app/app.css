@@ -1,0 +1,17 @@
+.card {
+  /* background-color: #1f1f1f; */
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+
+.nav-link.active {
+  background-color: #9e8585;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-weight: 600;
+}

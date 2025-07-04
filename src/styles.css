@@ -3,7 +3,7 @@
 /* Default: dark mode */
 body.tmk-dark {
   background-color: #121212;
-  color: white;
+  /* color: white; */
 }
 body.tmk-dark .nav-link,
 body.tmk-dark .btn-outline-light {
