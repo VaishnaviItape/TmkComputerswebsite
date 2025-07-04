@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+/* Default: dark mode */
+body.tmk-dark {
+  background-color: #121212;
+  color: white;
+}
+body.tmk-dark .nav-link,
+body.tmk-dark .btn-outline-light {
+  color: white;
+}
+body.tmk-dark .bg-dark {
+  background-color: #1e1e1e !important;
+}
+body.tmk-dark .border-dark {
+  border-color: #444 !important;
+}
+
+body.tmk-light {
+  background-color: white;
+  color: black;
+}
+body.tmk-light .nav-link {
+  color: #222;
+}
+body.tmk-light .btn-outline-light {
+  color: #222;
+  border-color: #222;
+}
+body.tmk-light .bg-dark {
+  background-color: #f8f9fa !important;
+  color: #000;
+}
+body.tmk-light .border-dark {
+  border-color: #ccc !important;
+}
