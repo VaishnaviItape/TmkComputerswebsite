@@ -15,32 +15,32 @@ export class App {
   protected title = 'TMK_COMPUTERS_MAIN';
    journeyItems = [
     {
-      icon: 'assets/icons/star.svg',
+      icon: 'assets/Star.svg',
       title: 'Expertise Across Industries',
       description: 'We deliver proven solutions for all business types, from startups to enterprises.'
     },
     {
-      icon: 'assets/icons/idea.svg',
+      icon: 'assets/Idea.svg',
       title: 'End-to-End Services',
       description: 'All your digital needs handled under one roof.'
     },
     {
-      icon: 'assets/icons/cursor.svg',
+      icon: 'assets/Cursor.svg',
       title: 'Creative & Strategic Thinking',
       description: 'We mix design flair with smart strategies that work.'
     },
     {
-      icon: 'assets/icons/mobile.svg',
+      icon: 'assets/Mobile.svg',
       title: 'Results-Driven Approach',
       description: 'We focus on outcomes that grow your business.'
     },
     {
-      icon: 'assets/icons/thunder.svg',
+      icon: 'assets/Thunder.svg',
       title: 'Cutting-Edge Technology',
       description: 'We use the latest tools to keep you ahead of the curve.'
     },
     {
-      icon: 'assets/icons/utility.svg',
+      icon: 'assets/Utility.svg',
       title: 'Client-Centric Process',
       description: 'Your goals guide every step we take.'
     }
