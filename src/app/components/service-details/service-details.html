@@ -1,0 +1,42 @@
+ <div class="container py-5">
+            <div class="row align-items-center">
+                <!-- Left Content -->
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                     <h1 class="display-3 fw-bold">
+        {{ selectedService.title }} <span class="text-secondary">Service</span>
+      </h1>
+
+                    <p class="fst-italic  mt-4">
+                        “Silicon Valley is coming and if banks don’t up their game, then tech companies will take over
+                        the
+                        industry’s business.
+                        There are hundreds of startups with a lot of brains and money working on various alternatives to
+                        traditional
+                        banking”
+                    </p>
+
+                      <!-- <p class="fst-italic mt-4">
+        {{ selectedService.description }}
+      </p> -->
+
+                    <div class="mt-4">
+                        <p class="mb-1 fw-semibold">Jamie Dimon | Chairman, President</p>
+                        <p class="mb-1 fw-semibold">and CEO of JPMorgan Chase</p>
+                    </div>
+
+                    <div class="mt-4 d-flex gap-3">
+                        <button class="btn btn-outline-light fw-semibold px-4 py-2 rounded-pill">
+                            Get Started
+                        </button>
+                        <button class="btn btn-outline-light fw-semibold px-4 py-2 rounded-pill">
+                            Free Consultation
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Content -->
+                <div class="col-lg-6 text-center">
+                    <img [src]="selectedService.icon" alt="{{ selectedService.title }}" alt="" style="max-width: 350px" />
+                </div>
+            </div>
+        </div>
