@@ -7,47 +7,47 @@ import { ObserveSectionDirective } from './service/observe-section.directive';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,CommonModule,ObserveSectionDirective,ReactiveFormsModule],
+  imports: [RouterOutlet, CommonModule, ObserveSectionDirective, ReactiveFormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
   protected title = 'TMK_COMPUTERS_MAIN';
-   journeyItems = [
+  journeyItems = [
     {
-      icon: 'assets/icons/star.svg',
+      icon: 'assets/Star.svg',
       title: 'Expertise Across Industries',
       description: 'We deliver proven solutions for all business types, from startups to enterprises.'
     },
     {
-      icon: 'assets/icons/idea.svg',
+      icon: 'assets/Idea.svg',
       title: 'End-to-End Services',
       description: 'All your digital needs handled under one roof.'
     },
     {
-      icon: 'assets/icons/cursor.svg',
+      icon: 'assets/Cursor.svg',
       title: 'Creative & Strategic Thinking',
       description: 'We mix design flair with smart strategies that work.'
     },
     {
-      icon: 'assets/icons/mobile.svg',
+      icon: 'assets/Mobile.svg',
       title: 'Results-Driven Approach',
       description: 'We focus on outcomes that grow your business.'
     },
     {
-      icon: 'assets/icons/thunder.svg',
+      icon: 'assets/Thunder.svg',
       title: 'Cutting-Edge Technology',
       description: 'We use the latest tools to keep you ahead of the curve.'
     },
     {
-      icon: 'assets/icons/utility.svg',
+      icon: 'assets/Utility.svg',
       title: 'Client-Centric Process',
       description: 'Your goals guide every step we take.'
     }
   ];
 
 
-   services = [
+  services = [
     {
       icon: 'assets/pc.svg',
       title: 'IT Consultation',
@@ -79,10 +79,10 @@ export class App {
       description: 'Create secure, scalable platforms for video, audio, or live content.'
     }
   ];
- activeSection = 'home';
-contactForm: FormGroup;
+  activeSection = 'home';
+  contactForm: FormGroup;
 
-  constructor(private fb: FormBuilder,public themeService: ThemeService) {
+  constructor(private fb: FormBuilder, public themeService: ThemeService) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
