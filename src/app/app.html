@@ -8,9 +8,21 @@
             <li><a class="nav-link " [class.active]="activeSection === 'contact'" href="#contact">Contact Us</a></li>
             <li><a class="nav-link " [class.active]="activeSection === 'career'" href="#career">Career</a></li>
         </ul>
-        <button class="btn btn-sm btn-outline-light ms-3" (click)="themeService.toggleTheme()">
-            {{ themeService.currentTheme === 'dark' ? 'Light' : 'Dark' }} Mode
+        <button
+            class="btn btn-sm d-flex align-items-center gap-2 px-3 py-2 border-0 rounded-pill shadow-sm theme-toggle-button"
+            (click)="themeService.toggleTheme()">
+
+            <i class="bi"
+                [ngClass]="themeService.currentTheme === 'dark' ? 'bi-sun-fill text-warning' : 'bi-moon-fill text-dark'"></i>
+
+            <span class="fw-semibold">
+                {{ themeService.currentTheme === 'dark' ? 'Light' : 'Dark' }} Mode
+            </span>
         </button>
+
+        <!-- <button class="btn btn-sm btn-outline-light ms-3" (click)="themeService.toggleTheme()">
+            {{ themeService.currentTheme === 'dark' ? 'Light' : 'Dark' }} Mode
+        </button> -->
     </nav>
 </header>
 
