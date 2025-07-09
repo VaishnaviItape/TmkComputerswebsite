@@ -1,0 +1,113 @@
+ 
+ <header class="sticky-top bg-dark border-bottom border-dark shadow-sm">
+    <nav class="container d-flex justify-content-between py-3">
+        <button class="navbar-brand  fw-bold fs-4 border-0 bg-transparent">TMK COMPUTERS</button>
+        <ul class="nav gap-3 d-none d-md-flex">
+            <li><a class="nav-link " [class.active]="activeSection === 'home'" href="#home">Home</a></li>
+            <li><a class="nav-link " [class.active]="activeSection === 'services'" href="#services">Services</a></li>
+            <li><a class="nav-link " [class.active]="activeSection === 'about'" href="#about">About Us</a></li>
+            <li><a class="nav-link " [class.active]="activeSection === 'contact'" href="#contact">Contact Us</a></li>
+            <li><a class="nav-link " [class.active]="activeSection === 'career'" href="#career">Career</a></li>
+        </ul>
+        <button
+            class="btn btn-sm d-flex align-items-center gap-2 px-3 py-2 border-0 rounded-pill shadow-sm theme-toggle-button"
+            (click)="themeService.toggleTheme()">
+
+            <i class="bi"
+                [ngClass]="themeService.currentTheme === 'dark' ? 'bi-sun-fill text-warning' : 'bi-moon-fill text-dark'"></i>
+
+            <span class="fw-semibold">
+                {{ themeService.currentTheme === 'dark' ? 'Light' : 'Dark' }} Mode
+            </span>
+        </button>
+
+        <!-- <button class="btn btn-sm btn-outline-light ms-3" (click)="themeService.toggleTheme()">
+            {{ themeService.currentTheme === 'dark' ? 'Light' : 'Dark' }} Mode
+        </button> -->
+    </nav>
+</header>
+ 
+ <section class="py-5" id="about">
+        <h2 class="fw-bold text-center mb-3">About <span class="text-secondary">Us</span></h2>
+        <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-between gap-5">
+            <div class="col-lg-6">
+
+                <p class=" small">
+                    TMK Computers is a software company based in Pune, India. Our Specialization is in designing
+                    and building cloud-native large distributed systems. We are building softwares in various domains
+                    like banking, loyalty, e-commerce, retailing, tourism, entertainment, etc.
+                    We are a company with Agile Principles & Values.
+                </p>
+                <button class="btn  mt-4 btn-outline-light px-4 py-2 rounded-pill">Contact Us</button>
+            </div>
+
+            <div class="col-lg-6 d-flex justify-content-center">
+                <img src="assets/rocketIcon.svg" alt="Rocket" class="img-fluid" style="max-height: 350px;" />
+            </div>
+        </div>
+    </section>
+
+
+  <footer class=" pt-5 pb-3">
+    <div class="container border-bottom border-secondary pb-4">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+            <h4 class="fw-bold mb-0">TMK COMPUTERS</h4>
+            <div class="d-flex align-items-center gap-3  small">
+                <span>Follow Us On Social Media</span>
+                <a href="#" class=""><i class="bi bi-linkedin fs-5"></i></a>
+                <a href="#" class=""><i class="bi bi-instagram fs-5"></i></a>
+                <a href="#" class=""><i class="bi bi-twitter fs-5"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-4">
+        <div class="row">
+            <!-- Home -->
+            <div class="col-md-4 mb-4">
+                <h6 class="fw-semibold text-uppercase mb-3">Home</h6>
+                <ul class="list-unstyled  small">
+                    <li>Benefits</li>
+                    <li>Our Testimonials</li>
+                    <li>Partners</li>
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div class="col-md-4 mb-4">
+                <h6 class="fw-semibold text-uppercase mb-3">Services</h6>
+                <ul class="list-unstyled  small">
+                    <li>IT Consultation</li>
+                    <li>IT Services</li>
+                    <li>Market Research</li>
+                    <li>Startup Consultation</li>
+                    <li>Private Equity and Venture Capital Services</li>
+                    <li>Crowdfunding Services</li>
+                    <li>Media & Streaming Platform</li>
+                    <li>Maker's Lab</li>
+                    <li>E-commerce, Retail & Loyalty Platform</li>
+                </ul>
+            </div>
+
+            <!-- About Us -->
+            <div class="col-md-4 mb-4">
+                <h6 class="fw-semibold text-uppercase mb-3">About Us</h6>
+                <ul class="list-unstyled  small">
+                    <li>Our Team</li>
+                    <li>Achievements</li>
+                    <li>Awards</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div
+        class="container border-top border-secondary pt-3 d-flex flex-column flex-md-row justify-content-between small ">
+        <div>&copy;2025 TMK Computers Pvt. Ltd.</div>
+        <div>
+            <a href="#" class="text-decoration-none  me-3">Privacy Policy</a>
+            <a href="#" class="text-decoration-none  me-3">Terms & Conditions</a>
+            <a href="#" class="text-decoration-none ">Cookie Policy</a>
+        </div>
+    </div>
+</footer>

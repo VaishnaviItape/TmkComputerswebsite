@@ -1,0 +1,42 @@
+<!-- ADMIN LAYOUT WITH SIDEBAR AND INNER HEADER -->
+<div class="d-flex min-vh-100">
+  
+  <!-- SIDEBAR -->
+  <nav
+    [ngClass]="{ 'd-none': isSidebarCollapsed, 'd-block': !isSidebarCollapsed }"
+    class="bg-dark text-white p-3"
+    style="width: 250px; min-height: 100vh;">
+    <h4 class="text-white">Admin Panel</h4>
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a routerLink="dashboard" class="nav-link text-white">Career</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="users" class="nav-link text-white">Contact </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- MAIN CONTENT WITH HEADER INSIDE -->
+  <div class="flex-grow-1">
+    
+    <!-- HEADER INSIDE MAIN -->
+    <header class="bg-light d-flex justify-content-between align-items-center px-4 py-2 border-bottom">
+      <div>
+        <button (click)="toggleSidebar()" class="btn btn-outline-secondary btn-sm me-2">
+          <i class="bi bi-list"></i>
+        </button>
+        <span class="fw-bold">Admin Dashboard</span>
+      </div>
+      <div>
+        <span class="text-muted">Welcome, Admin</span>
+      </div>
+    </header>
+
+    <!-- MAIN ROUTER CONTENT -->
+    <main class="p-4">
+      <router-outlet></router-outlet>
+    </main>
+
+  </div>
+</div>

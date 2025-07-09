@@ -30,3 +30,72 @@
 .theme-toggle-button i {
     font-size: 1rem;
 }
+
+
+
+.clients-section {
+    overflow: hidden;
+    /* background: #fff; */
+    padding: 40px 20px;
+    position: relative;
+  }
+
+  .clients-wrapper {
+    display: flex;
+    gap: 60px;
+    animation: scrollClients 30s linear infinite;
+    will-change: transform;
+  }
+
+  .client-card {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .client-card img {
+    height: 80px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+
+  .client-card img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+  }
+
+  @keyframes scrollClients {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .clients-scroll-container {
+    display: flex;
+    gap: 60px;
+  }
+
+  .client-title {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  /* Optional fade mask effect at sides */
+  .clients-section::before,
+  .clients-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 60px;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+ 

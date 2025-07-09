@@ -4,9 +4,11 @@
         <ul class="nav gap-3 d-none d-md-flex">
             <li><a class="nav-link " [class.active]="activeSection === 'home'" href="#home">Home</a></li>
             <li><a class="nav-link " [class.active]="activeSection === 'services'" href="#services">Services</a></li>
-            <li><a class="nav-link " [class.active]="activeSection === 'about'" href="#about">About Us</a></li>
+            <li><a class="nav-link " routerLink="/about-us" [class.active]="activeSection === 'about'"
+                    href="#about">About Us</a></li>
             <li><a class="nav-link " [class.active]="activeSection === 'contact'" href="#contact">Contact Us</a></li>
-            <li><a class="nav-link " [class.active]="activeSection === 'career'" href="#career">Career</a></li>
+            <li><a class="nav-link " routerLink="/career" [class.active]="activeSection === 'career'"
+                    href="#career">Career</a></li>
         </ul>
         <button
             class="btn btn-sm d-flex align-items-center gap-2 px-3 py-2 border-0 rounded-pill shadow-sm theme-toggle-button"
@@ -92,9 +94,9 @@
                         </div>
                         <h5 class="fw-semibold mb-2">{{ item.title }}</h5>
                         <p class=" small">{{ item.description }}</p>
-                        <button class="btn btn-outline-light rounded-pill mt-3 px-4 py-2">
+                        <!-- <button class="btn btn-outline-light rounded-pill mt-3 px-4 py-2" [routerLink]="['/digital-journey-details', item.id]" target="_blank">
                             Learn More →
-                        </button>
+                        </button> -->
                     </div>
                 </div>
             </div>
@@ -116,12 +118,13 @@
         </div>
         <div class="container">
             <div class="row g-4">
-                <div class="col-md-4" *ngFor="let service of services">
+                <div class="col-md-3" *ngFor="let service of services">
                     <div class="bg-dark p-4 rounded text-center h-100 shadow-sm border border-secondary-subtle">
                         <img [src]="service.icon" alt="icon" class="mb-3" height="40" />
                         <h5 class="fw-bold">{{ service.title }}</h5>
                         <p class=" small">{{ service.description }}</p>
-                        <button class="btn btn-outline-light btn-sm rounded-pill mt-3" [routerLink]="['/service-details', service.id]" target="_blank" >Learn More →</button>
+                        <button class="btn btn-outline-light btn-sm rounded-pill mt-3"
+                            [routerLink]="['/service-details', service.id]" target="_blank">Learn More →</button>
                     </div>
                 </div>
             </div>
@@ -129,11 +132,41 @@
     </section>
 </section>
 
+<section class="clients-section">
+    <h2 class="client-title">Our Esteemed Indian Clients</h2>
+    <div class="clients-scroll-container">
+        <div class="clients-wrapper">
+            <!-- Client Cards - duplicated for smooth scroll -->
+            <div class="client-card"><img src="assets/crowd.svg" alt="Tata Nano" /></div>
+            <div class="client-card"><img src="assets/Cursor.svg" alt="" /></div>
+            <div class="client-card"><img src="assets/eCommerce.svg" alt="Volkswagen" /></div>
+            <div class="client-card"><img src="assets/Idea.svg" alt="Reliance L S" /></div>
+            <div class="client-card"><img src="assets/lab.svg" alt="New Holland" /></div>
+            <div class="client-card"><img src="assets/media.svg" alt="Tek Components" /></div>
+            <div class="client-card"><img src="assets/Mobile.svg" alt="Creative Plastic" /></div>
+            <div class="client-card"><img src="assets/money.svg" alt="Meyer Organics" /></div>
+            <div class="client-card"><img src="assets/pc.svg" alt="Ranbaxy" /></div>
+            <div class="client-card"><img src="assets/switch.svg" alt="Piramal" /></div>
+
+            <!-- Duplicate -->
+            <div class="client-card"><img src="assets/terminal.svg" alt="Tata Nano" /></div>
+            <div class="client-card"><img src="assets/lab.svg" alt="Ranbaxy" /></div>
+            <div class="client-card"><img src="assets/Cursor.svg" alt="Volkswagen" /></div>
+            <div class="client-card"><img src="assets/eCommerce.svg" alt="Reliance L S" /></div>
+            <div class="client-card"><img src="assets/money.svg" alt="New Holland" /></div>
+            <div class="client-card"><img src="assets/switch.svg" alt="Tek Components" /></div>
+            <div class="client-card"><img src="assets/media.svg" alt="Creative Plastic" /></div>
+            <div class="client-card"><img src="assets/pc.svg" alt="Meyer Organics" /></div>
+            <div class="client-card"><img src="assets/Idea.svg" alt="Ranbaxy" /></div>
+            <div class="client-card"><img src="assets/eCommerce.svg" alt="Piramal" /></div>
+        </div>
+    </div>
+</section>
+
 <section id="about" observeSection (sectionInView)="onSectionChange($event)">
-    <section class="py-5" id="about">
+    <!-- <section class="py-5" id="about">
         <h2 class="fw-bold text-center mb-3">About <span class="text-secondary">Us</span></h2>
         <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-between gap-5">
-            <!-- Left Text -->
             <div class="col-lg-6">
 
                 <p class=" small">
@@ -145,26 +178,11 @@
                 <button class="btn  mt-4 btn-outline-light px-4 py-2 rounded-pill">Contact Us</button>
             </div>
 
-            <!-- Right Image -->
-            <div class="col-lg-6 d-flex justify-content-center">
+             <div class="col-lg-6 d-flex justify-content-center">
                 <img src="assets/rocketIcon.svg" alt="Rocket" class="img-fluid" style="max-height: 350px;" />
             </div>
         </div>
-    </section>
-    <!-- Get In Touch Section -->
-    <!-- <section class="bg-dark  py-5 border-top border-secondary">
-    <div class="container text-center">
-      <h2 class="fw-bold">
-        <span class="text-secondary">Get</span> in Touch with Us Today!
-      </h2>
-      <p class=" w-75 mx-auto mt-3 small">
-        At TMK COMPUTERS, we value your inquiries, feedback, and collaborations. Whether you are interested in
-        our digital services, have questions about our projects, or want to explore potential partnerships,
-        we encourage you to reach out to our dedicated team.
-      </p>
-    </div>
-  </section> -->
-
+    </section> -->
 </section>
 
 <section id="contact" observeSection (sectionInView)="onSectionChange($event)">
@@ -184,45 +202,6 @@
             through any
             of the following channels, and we'll be delighted to assist you on your digital journey.
         </p>
-
-        <!-- Contact Methods -->
-        <div class="container py-5  bg-dark">
-            <h5 class="text-center mb-4">Contact Us Via</h5>
-
-            <div class="row justify-content-center">
-                <!-- By Mail -->
-                <div class="col-md-5 mb-3">
-                    <div class="card border-0 text-white p-3">
-                        <small class="text-muted mb-2">By Mail</small>
-                        <div class="d-flex align-items-center justify-content-between bg-dark rounded-pill px-3 py-2">
-                            <div class="d-flex align-items-center">
-                                <i class="bi bi-envelope-fill me-2"></i>
-                                <span>avadhut.koretmkcomputers.in</span>
-                            </div>
-                            <a class="btn btn-dark btn-sm rounded-circle" href="mailto:avadhut.kore@tmkcomputers.in">
-                                <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- By Phone -->
-                <div class="col-md-5 mb-3">
-                    <div class="card  border-0 text-white p-3">
-                        <small class="text-muted mb-2">By Phone</small>
-                        <div class="d-flex align-items-center justify-content-between bg-dark rounded-pill px-3 py-2">
-                            <div class="d-flex align-items-center">
-                                <i class="bi bi-telephone-fill me-2"></i>
-                                <span>+91 9945282119</span>
-                            </div>
-                            <a class="btn btn-dark btn-sm rounded-circle" href="tel:+919945282119">
-                                <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="container-fluid bg-dark  py-5">
             <div class="text-center">
@@ -280,10 +259,9 @@
 </section>
 
 <section id="career" observeSection (sectionInView)="onSectionChange($event)" class="py-5">
-    <section class="py-5" id="career">
+    <!-- <section class="py-5" id="career">
         <div class="container">
 
-            <!-- Header Section -->
             <h2 class="text-center fw-bold mb-4">
                 Career <br />
                 <span class="text-secondary">Cloud-Native Innovation</span>
@@ -296,7 +274,6 @@
                 <button class="btn btn-outline-light px-4 py-2">Explore Opportunities</button>
             </div>
 
-            <!-- Features Section -->
             <div class="row text-center mb-5">
                 <div class="col-md-4 mb-3">
                     <div class="border rounded py-4 px-3 bg-dark">
@@ -336,7 +313,6 @@
                 </div>
             </div>
 
-            <!-- Open Positions -->
             <h3 class="text-center fw-bold mb-4">Open Positions at TMK Computers</h3>
             <div class="row text-center mb-5">
                 <div class="col-md-4 mb-3">
@@ -348,7 +324,8 @@
                         </div>
                         <h5 class="fw-semibold mb-1">UX Designer</h5>
                         <p class="text-secondary mb-3">Exp: 1-2 Years</p>
-                        <button class="btn btn-outline-light" [routerLink]="'/career-details'" target="_blank">Apply</button>
+                        <button class="btn btn-outline-light" [routerLink]="'/career-details'"
+                            target="_blank">Apply</button>
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
@@ -360,7 +337,8 @@
                         </div>
                         <h5 class="fw-semibold mb-1">Flutter Developer</h5>
                         <p class="text-secondary mb-3">Exp: 1-2 Years</p>
-                        <button class="btn btn-outline-light" [routerLink]="'/career-details'" target="_blank">Apply</button>
+                        <button class="btn btn-outline-light" [routerLink]="'/career-details'"
+                            target="_blank">Apply</button>
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
@@ -368,16 +346,17 @@
                         <div class="mb-2">
                             <span class="badge bg-secondary me-1">Fulltime</span>
                             <span class="badge bg-secondary me-1">Onsite</span>
-                            <span class="badge bg-secondary" [routerLink]="'/career-details'" target="_blank">₹20,000</span>
+                            <span class="badge bg-secondary" [routerLink]="'/career-details'"
+                                target="_blank">₹20,000</span>
                         </div>
                         <h5 class="fw-semibold mb-1">.Net</h5>
                         <p class="text-secondary mb-3">Exp: 1-2 Years</p>
-                        <button class="btn btn-outline-light" [routerLink]="'/career-details'" target="_blank">Apply</button>
+                        <button class="btn btn-outline-light" [routerLink]="'/career-details'"
+                            target="_blank">Apply</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Apply Now Form -->
             <div class="bg-dark rounded p-4 mb-5">
                 <h3 class="text-center fw-bold mb-4">Apply <span class="text-secondary">Now</span> and Join Our Team
                 </h3>
@@ -414,7 +393,7 @@
             </div>
 
         </div>
-    </section>
+    </section> -->
 </section>
 
 <footer class=" pt-5 pb-3">
