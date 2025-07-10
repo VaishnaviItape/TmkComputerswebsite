@@ -5,9 +5,13 @@ import { ServiceDetails } from './components/service-details/service-details';
 import { DigitalJourneyDetails } from './components/digital-journey-details/digital-journey-details';
 import { Career } from './components/career/career';
 import { AboutUs } from './components/about-us/about-us';
+import { Login } from './auth/login/login';
 
 export const routes: Routes = [
 
+  
+
+    { path: 'login', component: Login },
     { path: '', component: Home },
     { path: 'career-details', component: CareerDetails },
     { path: 'service-details/:id', component: ServiceDetails },
