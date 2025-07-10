@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "heading": "Digital Transformation",
+    "quote": "Silicon Valley is coming...",
+    "author": "Jamie Dimon",
+    "image": "assets/images/image1.png"
+  },
+  {
+    "id": 2,
+    "heading": "Innovation",
+    "quote": "Startups are winning...",
+    "author": "Elon Musk",
+    "image": "assets/images/image2.png"
+  }
+]

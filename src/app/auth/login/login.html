@@ -6,13 +6,39 @@
         <h4 class="my-5">SIGN IN</h4>
       </div>
       <!-- Login Form -->
-      <form>
-        <input type="email" id="email" class="second zero-raduis" name="email" placeholder="email">
-        <input type="text" id="password" class="third zero-raduis" name="login" placeholder="password">
+      <form  #signInForm="ngForm" (ngSubmit)="onSubmit(signInForm)">
+        <input  type="email"
+        id="username"
+        class="form-control"
+        name="username"
+        required
+        [(ngModel)]="loginData.username" placeholder="email">
+        <input   type="password"
+        id="password"
+        class="form-control"
+        name="password"
+        required
+        [(ngModel)]="loginData.password">
         <div id="formFooter">
           <a class="underlineHover" href="#">Forgot Password?</a>
         </div>
-        <input type="submit" class="fourth zero-raduis" value="login">
+          <button
+      class="btn btn-primary w-100"
+      type="submit"
+      [disabled]="signInForm.invalid "
+    >
+      <span >Log In <i class="fas fa-sign-in-alt ms-1"></i></span>
+       <!-- <span *ngIf="!isLoading">Log In <i class="fas fa-sign-in-alt ms-1"></i></span> -->
+      <!-- <span *ngIf="isLoading">
+        <span
+          class="spinner-border spinner-border-sm me-1"
+          role="status"
+          aria-hidden="true"
+        ></span>
+        Logging in...
+      </span> -->
+    </button>
+        <!-- <input type="submit" class="fourth zero-raduis" value="login"> -->
         <!-- <h2>You don't have a account ?</h2>
         <input type="button" class="fourth zero-raduis pc" value="register"> -->
       </form>

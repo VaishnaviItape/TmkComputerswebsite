@@ -1,0 +1,41 @@
+<div class="container py-4">
+
+  <!-- ✅ Single Form for Add + Update -->
+  <h5>{{ isEditMode ? 'Edit Item' : 'Add New Item' }}</h5>
+  <div class="card p-3 mb-4 bg-light">
+    <div class="mb-2">
+      <label class="form-label">Heading:</label>
+      <input [(ngModel)]="formData.heading" class="form-control" />
+    </div>
+    <div class="mb-2">
+      <label class="form-label">Quote:</label>
+      <textarea [(ngModel)]="formData.quote" class="form-control"></textarea>
+    </div>
+    <div class="mb-2">
+      <label class="form-label">Author:</label>
+      <input [(ngModel)]="formData.author" class="form-control" />
+    </div>
+    <div class="mb-2">
+      <label class="form-label">Image URL:</label>
+      <input [(ngModel)]="formData.image" class="form-control" />
+    </div>
+    <div class="mt-2">
+      <button (click)="onSubmit()" class="btn btn-success btn-sm me-2">
+        {{ isEditMode ? 'Update Item' : 'Add Item' }}
+      </button>
+      <button *ngIf="isEditMode" (click)="cancelEdit()" class="btn btn-secondary btn-sm">Cancel</button>
+    </div>
+  </div>
+
+  <!-- ✅ Data List -->
+  <div *ngFor="let item of homeData; let i = index" class="mb-4 border-bottom pb-3">
+    <h4>{{ item.heading }}</h4>
+    <p class="fst-italic">{{ item.quote }}</p>
+    <small class="text-muted">{{ item.author }}</small>
+    <div class="my-2">
+      <img [src]="item.image" class="img-fluid rounded" style="max-width: 300px;" />
+    </div>
+    <button (click)="editItem(i)" class="btn btn-primary btn-sm me-2">Edit</button>
+    <button (click)="deleteItem(i)" class="btn btn-danger btn-sm">Delete</button>
+  </div>
+</div>
