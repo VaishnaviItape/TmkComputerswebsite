@@ -11,7 +11,6 @@
         <button
             class="btn btn-sm d-flex align-items-center gap-2 px-3 py-2 border-0 rounded-pill shadow-sm theme-toggle-button"
             (click)="themeService.toggleTheme()">
-
             <i class="bi"
                 [ngClass]="themeService.currentTheme === 'dark' ? 'bi-sun-fill text-warning' : 'bi-moon-fill text-dark'"></i>
 
@@ -19,10 +18,6 @@
                 {{ themeService.currentTheme === 'dark' ? 'Light' : 'Dark' }} Mode
             </span>
         </button>
-
-        <!-- <button class="btn btn-sm btn-outline-light ms-3" (click)="themeService.toggleTheme()">
-            {{ themeService.currentTheme === 'dark' ? 'Light' : 'Dark' }} Mode
-        </button> -->
     </nav>
 </header>
 
@@ -127,41 +122,74 @@
         </div>
 
         <!-- Apply Now Form -->
-        <div class="bg-dark rounded p-4 mb-5">
-            <h3 class="text-center fw-bold mb-4">Apply <span class="text-secondary">Now</span> and Join Our Team
-            </h3>
-            <p class="text-center  mb-4">Be a part of TMK Computers and help build the future of digital innovation.
-            </p>
+        <h3 class="text-center fw-bold mb-4">
+            Apply <span class="text-secondary">Now</span> and Join Our Team
+        </h3>
+        <p class="text-center mb-4">
+            Be a part of TMK Computers and help build the future of digital innovation.
+        </p>
+        <div class="bg-dark rounded p-4 mb-5 ">
             <form class="row g-3">
+                <!-- Name, Email, Phone -->
                 <div class="col-md-4">
-                    <input type="text" class="form-control" placeholder="Enter your Name" />
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control  border-secondary" placeholder="Enter your Name" />
                 </div>
                 <div class="col-md-4">
-                    <input type="email" class="form-control" placeholder="Enter your Email" />
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control border-secondary" placeholder="Enter your Email" />
                 </div>
                 <div class="col-md-4">
-                    <input type="tel" class="form-control" placeholder="Enter your Phone Number" />
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" class="form-control border-secondary" placeholder="Enter your Phone Number" />
                 </div>
+
+                <!-- Position & Resume Upload -->
                 <div class="col-md-6">
-                    <select class="form-select">
-                        <option>Select your Service</option>
+                    <label class="form-label">Position Applying For</label>
+                    <select class="form-select border-secondary">
+                        <option>Select Position for Applying</option>
                         <option>UX Designer</option>
                         <option>Flutter Developer</option>
-                        <option>.Net</option>
+                        <option>.NET Developer</option>
                     </select>
                 </div>
                 <div class="col-md-6">
-                    <input type="file" class="form-control" />
+                    <label class="form-label">Resume Upload</label>
+                    <input type="file" class="form-control border-secondary" />
                 </div>
+
+                <!-- Experience & Skills -->
+                <div class="col-md-6">
+                    <label class="form-label">Experience</label>
+                    <select class="form-select border-secondary">
+                        <option>Select Your Experience</option>
+                        <option>0-1 Years</option>
+                        <option>1-3 Years</option>
+                        <option>3+ Years</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Skills</label>
+                    <input type="text" class="form-control border-secondary"
+                        placeholder="Enter your skills Ex: C++, Python" />
+                </div>
+
+                <!-- Cover Message -->
                 <div class="col-12">
-                    <textarea rows="3" class="form-control" placeholder="Tell us why you’re a good fit"></textarea>
+                    <label class="form-label">Cover Message</label>
+                    <textarea rows="3" class="form-control border-secondary"
+                        placeholder="Tell us why you're a good fit"></textarea>
                 </div>
+
+                <!-- Submit Button -->
                 <div class="col-12 text-end">
-                    <button type="submit" class="btn btn-outline-light px-4">Send Your Application →</button>
+                    <button type="submit" class="btn btn-outline-light px-4">
+                        Send Your Application →
+                    </button>
                 </div>
             </form>
         </div>
-
     </div>
 </section>
 
@@ -195,15 +223,10 @@
             <div class="col-md-4 mb-4">
                 <h6 class="fw-semibold text-uppercase mb-3">Services</h6>
                 <ul class="list-unstyled  small">
-                    <li>IT Consultation</li>
-                    <li>IT Services</li>
-                    <li>Market Research</li>
-                    <li>Startup Consultation</li>
-                    <li>Private Equity and Venture Capital Services</li>
-                    <li>Crowdfunding Services</li>
-                    <li>Media & Streaming Platform</li>
-                    <li>Maker's Lab</li>
-                    <li>E-commerce, Retail & Loyalty Platform</li>
+                    <li>Costom software development</li>
+                    <li>Costom application development </li>
+                    <li>Website development</li>
+                    <li>Digital marketing</li>
                 </ul>
             </div>
 

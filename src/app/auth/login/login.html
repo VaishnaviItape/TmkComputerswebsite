@@ -1,47 +1,45 @@
-<div class="container mt-5">
-  <div class="d-flex justify-content-center h-50">
-    <div id="formContent">
-      <!-- Icon -->
-      <div class="first">
-        <h4 class="my-5">SIGN IN</h4>
-      </div>
-      <!-- Login Form -->
-      <form  #signInForm="ngForm" (ngSubmit)="onSubmit(signInForm)">
-        <input  type="email"
-        id="username"
-        class="form-control"
-        name="username"
-        required
-        [(ngModel)]="loginData.username" placeholder="email">
-        <input   type="password"
-        id="password"
-        class="form-control"
-        name="password"
-        required
-        [(ngModel)]="loginData.password">
-        <div id="formFooter">
-          <a class="underlineHover" href="#">Forgot Password?</a>
+<div class="login-wrapper d-flex justify-content-center align-items-center">
+  <div class="login-card shadow">
+    <h4 class="text-center mb-4 fw-bold">Welcome Back</h4>
+    <form #signInForm="ngForm" (ngSubmit)="onSubmit(signInForm)">
+      <div class="form-group mb-3">
+        <div class="input-group">
+          <input
+            type="email"
+            class="form-control border-start-0"
+            name="username"
+            placeholder="Email"
+            required
+            [(ngModel)]="loginData.username"
+          />
         </div>
-          <button
-      class="btn btn-primary w-100"
-      type="submit"
-      [disabled]="signInForm.invalid "
-    >
-      <span >Log In <i class="fas fa-sign-in-alt ms-1"></i></span>
-       <!-- <span *ngIf="!isLoading">Log In <i class="fas fa-sign-in-alt ms-1"></i></span> -->
-      <!-- <span *ngIf="isLoading">
-        <span
-          class="spinner-border spinner-border-sm me-1"
-          role="status"
-          aria-hidden="true"
-        ></span>
-        Logging in...
-      </span> -->
-    </button>
-        <!-- <input type="submit" class="fourth zero-raduis" value="login"> -->
-        <!-- <h2>You don't have a account ?</h2>
-        <input type="button" class="fourth zero-raduis pc" value="register"> -->
-      </form>
-    </div>
+      </div>
+
+      <div class="form-group mb-4">
+        <div class="input-group">
+          <input
+            type="password"
+            class="form-control border-start-0"
+            name="password"
+            placeholder="Password"
+            required
+            [(ngModel)]="loginData.password"
+          />
+        </div>
+      </div>
+
+      <button
+        class="btn login-btn w-100 mb-3"
+        type="submit"
+        [disabled]="signInForm.invalid"
+      >
+        Login
+      </button>
+
+      <p class="text-center small mb-0">
+        Don’t have an account?
+        <a href="#" class="text-primary">Sign Up</a>
+      </p>
+    </form>
   </div>
 </div>

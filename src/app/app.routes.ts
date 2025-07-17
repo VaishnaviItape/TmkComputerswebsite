@@ -19,7 +19,7 @@ export const routes: Routes = [
     { path: 'career', component: Career },
     { path: 'about-us', component: AboutUs },
       {
-    path: '',
+    path: 'about-us',
     redirectTo: '',
     pathMatch: 'full'
   },
@@ -28,6 +28,6 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./admin/admin.routes').then((m) => m.adminRoutes),
   },
-    
+     { path: '**', redirectTo: '' }
 
 ];

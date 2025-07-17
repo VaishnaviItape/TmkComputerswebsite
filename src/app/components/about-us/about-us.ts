@@ -6,16 +6,16 @@ import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-about-us',
-  imports: [RouterModule,CommonModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './about-us.html',
   styleUrl: './about-us.css'
 })
 export class AboutUs {
-  constructor(private fb: FormBuilder, public themeService: ThemeService) {}
+  constructor(private fb: FormBuilder, public themeService: ThemeService) { }
 
-     activeSection = 'about';
+  activeSection = 'about';
 
-   onSectionChange(sectionId: string) {
+  onSectionChange(sectionId: string) {
     this.activeSection = sectionId;
   }
 }

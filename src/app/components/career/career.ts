@@ -6,16 +6,16 @@ import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-career',
-  imports: [RouterModule,CommonModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './career.html',
   styleUrl: './career.css'
 })
 export class Career {
-  constructor(private fb: FormBuilder, public themeService: ThemeService) {}
+  constructor(private fb: FormBuilder, public themeService: ThemeService) { }
 
-    activeSection = 'career';
+  activeSection = 'career';
 
-   onSectionChange(sectionId: string) {
+  onSectionChange(sectionId: string) {
     this.activeSection = sectionId;
   }
 }

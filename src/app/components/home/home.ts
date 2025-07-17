@@ -55,41 +55,29 @@ export class Home {
 
   services = [
     {
-      id: 'Digital Marketing',
+      id: 'Costom software development',
       icon: 'assets/pc.svg',
-      title: 'IT Consultation',
-      description: 'Expert advice to align your IT strategy with business goals. We optimize your infrastructure for efficiency and growth.'
+      title: 'Costom Software Development',
+      description: 'We build scalable, secure, and custom software solutions tailored to your business needs, enhancing operational efficiency, automation, and digital transformation with innovative technology and expert coding practices.'
     },
     {
-      id: 'Website Development',
+      id: 'Costom application development',
       icon: 'assets/switch.svg',
-      title: 'Market Research',
-      description: 'Data-driven insights into your audience. Make informed decisions and stay ahead of competitors.'
+      title: 'Costom Application Development',
+      description: 'Create high-performance, user-friendly mobile and web applications customized to your business goals. We design, develop, and deploy apps that streamline your processes and improve user engagement.'
     },
     {
-      id: 'Custom Software Development',
+      id: 'Website development',
       icon: 'assets/rocketIcon.svg',
-      title: 'Startup Consultation',
-      description: 'Turn your idea into a viable business with planning, product strategy, and go-to-market support.'
+      title: 'Website Development',
+      description: 'Get responsive, SEO-optimized, and visually stunning websites designed for performance and lead generation. From static sites to dynamic portals, we develop websites that grow your online presence.'
     },
     {
-      id: 'Mobile App Development',
+      id: 'Digital marketing',
       icon: 'assets/money.svg',
-      title: 'Private Equity & Venture Capital',
-      description: 'Get connected with the right investors. We help you pitch and scale.'
-    },
-    // {
-    //   id: 'crowdfunding',
-    //   icon: 'assets/crowd.svg',
-    //   title: 'Crowdfunding Services',
-    //   description: 'Launch confidently. From strategy to outreach, we guide your campaign.'
-    // },
-    // {
-    //   id: 'media-streaming',
-    //   icon: 'assets/media.svg',
-    //   title: 'Media & Streaming Platform',
-    //   description: 'Create secure, scalable platforms for video, audio, or live content.'
-    // }
+      title: 'Digital marketing',
+      description: 'Promote your brand online using SEO, social media marketing, Google Ads, and email campaigns. We drive traffic, boost visibility, and convert clicks into loyal customers effectively.'
+    }
   ];
 
   activeSection = 'home';
@@ -108,7 +96,6 @@ export class Home {
 
   submitForm() {
     if (this.contactForm.valid) {
-      console.log(this.contactForm.value);
       alert('Form Submitted Successfully!');
       this.contactForm.reset();
     } else {

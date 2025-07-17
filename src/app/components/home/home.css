@@ -1,101 +1,100 @@
 .card {
-    /* background-color: #1f1f1f; */
-    border-radius: 16px;
-    transition: transform 0.3s ease;
+  /* background-color: #1f1f1f; */
+  border-radius: 16px;
+  transition: transform 0.3s ease;
 
-    &:hover {
-        transform: translateY(-5px);
-    }
+  &:hover {
+    transform: translateY(-5px);
+  }
 }
 
 .nav-link.active {
-    background-color: #9e8585;
-    border-radius: 20px;
-    padding: 6px 12px;
-    font-weight: 600;
+  background-color: #9e8585;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-weight: 600;
 }
 
 .theme-toggle-button {
-    background: linear-gradient(135deg, #6c757d, #343a40);
-    color: #fff;
-    transition: all 0.3s ease;
+  background: linear-gradient(135deg, #6c757d, #343a40);
+  color: #fff;
+  transition: all 0.3s ease;
 }
 
 .theme-toggle-button:hover {
-    background: linear-gradient(135deg, #5a6268, #212529);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #5a6268, #212529);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .theme-toggle-button i {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 
 
 .clients-section {
-    overflow: hidden;
-    /* background: #fff; */
-    padding: 40px 20px;
-    position: relative;
+  overflow: hidden;
+  /* background: #fff; */
+  padding: 40px 20px;
+  position: relative;
+}
+
+.clients-wrapper {
+  display: flex;
+  gap: 60px;
+  animation: scrollClients 30s linear infinite;
+  will-change: transform;
+}
+
+.client-card {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.client-card img {
+  height: 80px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.client-card img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+@keyframes scrollClients {
+  0% {
+    transform: translateX(0%);
   }
 
-  .clients-wrapper {
-    display: flex;
-    gap: 60px;
-    animation: scrollClients 30s linear infinite;
-    will-change: transform;
+  100% {
+    transform: translateX(-50%);
   }
+}
 
-  .client-card {
-    flex: 0 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.clients-scroll-container {
+  display: flex;
+  gap: 60px;
+}
 
-  .client-card img {
-    height: 80px;
-    object-fit: contain;
-    filter: grayscale(100%);
-    transition: transform 0.3s ease, filter 0.3s ease;
-  }
+.client-title {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
 
-  .client-card img:hover {
-    filter: grayscale(0%);
-    transform: scale(1.1);
-  }
-
-  @keyframes scrollClients {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
-  .clients-scroll-container {
-    display: flex;
-    gap: 60px;
-  }
-
-  .client-title {
-    text-align: center;
-    font-weight: 600;
-    margin-bottom: 20px;
-  }
-
-  /* Optional fade mask effect at sides */
-  .clients-section::before,
-  .clients-section::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 60px;
-    height: 100%;
-    z-index: 1;
-    pointer-events: none;
-  }
-
- 
+/* Optional fade mask effect at sides */
+.clients-section::before,
+.clients-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}

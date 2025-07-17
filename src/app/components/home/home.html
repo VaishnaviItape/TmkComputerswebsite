@@ -21,10 +21,6 @@
                 {{ themeService.currentTheme === 'dark' ? 'Light' : 'Dark' }} Mode
             </span>
         </button>
-
-        <!-- <button class="btn btn-sm btn-outline-light ms-3" (click)="themeService.toggleTheme()">
-            {{ themeService.currentTheme === 'dark' ? 'Light' : 'Dark' }} Mode
-        </button> -->
     </nav>
 </header>
 
@@ -40,18 +36,10 @@
                     </h1>
 
                     <p class="fst-italic  mt-4">
-                        “Silicon Valley is coming and if banks don’t up their game, then tech companies will take over
-                        the
-                        industry’s business.
-                        There are hundreds of startups with a lot of brains and money working on various alternatives to
-                        traditional
-                        banking”
+                        “Digital transformation is no longer optional—it's a necessity. From automating operations to
+                        crafting seamless customer experiences, we deliver end-to-end digital solutions that put your
+                        business ahead of the curve”
                     </p>
-
-                    <div class="mt-4">
-                        <p class="mb-1 fw-semibold">Jamie Dimon | Chairman, President</p>
-                        <p class="mb-1 fw-semibold">and CEO of JPMorgan Chase</p>
-                    </div>
 
                     <div class="mt-4 d-flex gap-3">
                         <button class="btn btn-outline-light fw-semibold px-4 py-2 rounded-pill">
@@ -107,7 +95,7 @@
 <section id="services" observeSection (sectionInView)="onSectionChange($event)">
     <section class="   py-5" id="services">
         <div class="container text-center mb-5">
-            <h2 class="fw-bold ">
+            <h2 class="fw-bold">
                 <span class="text-secondary">Our</span> Services
             </h2>
             <p class=" mt-3 text-center">
@@ -123,8 +111,8 @@
                         <img [src]="service.icon" alt="icon" class="mb-3" height="40" />
                         <h5 class="fw-bold">{{ service.title }}</h5>
                         <p class=" small">{{ service.description }}</p>
-                        <button class="btn btn-outline-light btn-sm rounded-pill mt-3"
-                            [routerLink]="['/service-details', service.id]" target="_blank">Learn More →</button>
+                        <!-- <button class="btn btn-outline-light btn-sm rounded-pill mt-3"
+                            [routerLink]="['/service-details', service.id]" target="_blank">Learn More →</button> -->
                     </div>
                 </div>
             </div>
@@ -133,7 +121,7 @@
 </section>
 
 <section class="clients-section">
-    <h2 class="client-title">Our Esteemed Indian Clients</h2>
+    <h2 class="client-title fw-bold"><span class="text-secondary">Our</span> Clients</h2>
     <div class="clients-scroll-container">
         <div class="clients-wrapper">
             <!-- Client Cards - duplicated for smooth scroll -->
@@ -425,15 +413,10 @@
             <div class="col-md-4 mb-4">
                 <h6 class="fw-semibold text-uppercase mb-3">Services</h6>
                 <ul class="list-unstyled  small">
-                    <li>IT Consultation</li>
-                    <li>IT Services</li>
-                    <li>Market Research</li>
-                    <li>Startup Consultation</li>
-                    <li>Private Equity and Venture Capital Services</li>
-                    <li>Crowdfunding Services</li>
-                    <li>Media & Streaming Platform</li>
-                    <li>Maker's Lab</li>
-                    <li>E-commerce, Retail & Loyalty Platform</li>
+                    <li>Costom software development</li>
+                    <li>Costom application development </li>
+                    <li>Website development</li>
+                    <li>Digital marketing</li>
                 </ul>
             </div>
 

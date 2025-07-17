@@ -4,3 +4,20 @@
     padding: 6px 12px;
     font-weight: 600;
 }
+
+
+.theme-toggle-button {
+    background: linear-gradient(135deg, #6c757d, #343a40);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle-button:hover {
+    background: linear-gradient(135deg, #5a6268, #212529);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle-button i {
+    font-size: 1rem;
+}
