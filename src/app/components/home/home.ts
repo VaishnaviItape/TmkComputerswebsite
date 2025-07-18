@@ -18,7 +18,7 @@ export class Home {
     {
       id: 'expertise',
       icon: 'assets/Star.svg',
-      title: 'Expertise Across Industries',
+      title: 'Expertise Across  Industries',
       description: 'We’ve successfully delivered technology and infrastructure solutions to clients across diverse sectors — from manufacturing and automotive to pharmaceuticals, logistics, and beyond.'
     },
     {
@@ -40,10 +40,10 @@ export class Home {
       description: 'We believe in outcomes, not just outputs. Every project we take on is executed with one goal in mind: to deliver measurable results that grow your business..'
     },
     {
-      id: 'cutting-edge',
+      id: 'cutting-edge technology',
       icon: 'assets/Thunder.svg',
       title: 'Cutting-Edge Technology',
-      description: 'We harness the power of the latest tools, platforms, and innovations to keep your business ahead of the curve. Whether its industrial automation, advanced flooring materials, IoT-ready infrastructure, or secure cloud solutions — we integrate next-gen technology into every project we deliver.'
+      description: 'We harness the power of the latest tools, platforms, and innovations to keep your business ahead of the curve. Whether its industrial automation, advanced flooring materials, IoT-ready infrastructure.'
     },
     {
       id: 'client-centric',
@@ -54,16 +54,16 @@ export class Home {
   ];
 
   services = [
-    {
-      id: 'Costom software development',
+   {
+      id: 'Custom software development',
       icon: 'assets/pc.svg',
-      title: 'Costom Software Development',
+      title: 'Custom Software Development',
       description: 'We build scalable, secure, and custom software solutions tailored to your business needs, enhancing operational efficiency, automation, and digital transformation with innovative technology and expert coding practices.'
     },
     {
-      id: 'Costom application development',
+      id: 'Custom  application development',
       icon: 'assets/switch.svg',
-      title: 'Costom Application Development',
+      title: 'Custom  Application Development',
       description: 'Create high-performance, user-friendly mobile and web applications customized to your business goals. We design, develop, and deploy apps that streamline your processes and improve user engagement.'
     },
     {
@@ -96,6 +96,7 @@ export class Home {
 
   submitForm() {
     if (this.contactForm.valid) {
+      console.log(this.contactForm.value);
       alert('Form Submitted Successfully!');
       this.contactForm.reset();
     } else {

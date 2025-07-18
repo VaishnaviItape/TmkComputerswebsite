@@ -98,3 +98,7 @@
   z-index: 1;
   pointer-events: none;
 }
+
+.p-4 {
+    padding: 3rem !important;
+}
