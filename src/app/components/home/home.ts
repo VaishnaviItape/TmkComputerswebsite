@@ -102,10 +102,11 @@ export class Home {
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phoneNumber: ['', Validators.required],
-      service: this.fb.array([], Validators.required),
+      service: ['', Validators.required],
+      // service: this.fb.array([], Validators.required),
       message: ['', Validators.required],
-      companyId: [0, Validators.required],
-      companyCode: ['', Validators.required],
+      companyId: [0, ],
+      companyCode: ['test'],
     });
   }
 
@@ -116,11 +117,11 @@ export class Home {
     }
  const rawValue = this.contactForm.value;
 
-  const payload = {
-    ...rawValue,
-    service: rawValue.service.join(', ') // ✅ create string without extra quotes
-  };
-    this.api.postDataApi('api/ContactUs/create', payload).subscribe({
+  // const payload = {
+  //   ...rawValue,
+  //   service: rawValue.service.join(', ') // ✅ create string without extra quotes
+  // };
+    this.api.postDataApi('api/ContactUs/create', rawValue).subscribe({
       next: () => {
         Swal.fire('Success', 'Message sent successfully!', 'success');
         this.contactForm.reset();

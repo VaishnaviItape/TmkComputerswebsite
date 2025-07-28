@@ -216,20 +216,24 @@
       <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
         <div class="row g-3">
           <div class="col-md-6">
+            <label class="form-label">Enter your First Name</label>
             <input formControlName="firstName" type="text" class="form-control" placeholder="Enter your First Name" />
           </div>
           <div class="col-md-6">
+            <label class="form-label">Enter your Last Name</label>
             <input formControlName="lastName" type="text" class="form-control" placeholder="Enter your Last Name" />
           </div>
           <div class="col-md-6">
+            <label class="form-label">Enter your Email</label>
             <input formControlName="email" type="email" class="form-control" placeholder="Enter your Email" />
           </div>
           <div class="col-md-6">
+            <label class="form-label">Enter your Phone Number</label>
             <input formControlName="phoneNumber" type="tel" class="form-control"
               placeholder="Enter your Phone Number" />
           </div>
           <div class="col-md-6">
-            <label class="form-label fw-bold">Select Service</label>
+            <!-- <label class="form-label fw-bold">Select Service</label>
             <div class="row row-cols-2 row-cols-md-4 g-2">
               <div class="form-check col" *ngFor="let service of servicesList">
                 <input class="form-check-input" type="checkbox" [value]="service" (change)="onCheckboxChange($event)"
@@ -238,15 +242,29 @@
                   {{ service }}
                 </label>
               </div>
-            </div>
+            </div> -->
+            <label class="form-label">Select Service</label>
+            <select class="form-select border-secondary" formControlName="service">
+              <option value="">Select Service</option>
+              <option value="Custom Software Development">Custom Software Development</option>
+              <option value="Custom Application Development">Custom Application Development</option>
+              <option value="Website Development">Website Development</option>
+              <option value="Digital Marketing">Digital Marketing</option>
+            </select>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-6">
+            <label class="form-label">Company / Organization Name</label>
+            <input formControlName="phoneNumber" type="tel" class="form-control"
+              placeholder="Company / Organization Name" />
+          </div>
+          <!-- <div class="col-md-3">
             <input formControlName="companyId" type="number" class="form-control" placeholder="Company ID" />
-          </div>
-          <div class="col-md-3">
+          </div> -->
+          <!-- <div class="col-md-3">
             <input formControlName="companyCode" type="text" class="form-control" placeholder="Company Code" />
-          </div>
+          </div> -->
           <div class="col-12">
+            <label class="form-label">Enter your Message</label>
             <textarea formControlName="message" rows="4" class="form-control"
               placeholder="Enter your Message"></textarea>
           </div>

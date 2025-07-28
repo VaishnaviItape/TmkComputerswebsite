@@ -1,8 +1,8 @@
 <!-- ADMIN LAYOUT WITH SIDEBAR AND INNER HEADER -->
 <div class="d-flex min-vh-100">
-  
+
   <!-- SIDEBAR -->
-  <nav
+  <!-- <nav
     [ngClass]="{ 'd-none': isSidebarCollapsed, 'd-block': !isSidebarCollapsed }"
     class="bg-dark text-white p-3"
     style="width: 250px; min-height: 100vh;">
@@ -15,11 +15,51 @@
         <a routerLink="users" class="nav-link text-white">Contact </a>
       </li>
     </ul>
-  </nav>
+  </nav> -->
+  <nav
+  [ngClass]="{ 'd-none': isSidebarCollapsed, 'd-block': !isSidebarCollapsed }"
+  class="bg-dark text-white p-3"
+  style="width: 250px; min-height: 100vh;"
+>
+  <h4 class="text-white mb-4">TMK COMPUTERS</h4>
+
+  <ul class="nav flex-column sidebar-nav">
+    <li class="nav-item mb-1 cursor-pointer">
+      <a routerLink="/dashboard" class="nav-link text-white d-flex justify-content-between align-items-center">
+        <div>
+          <i class="bi bi-speedometer2 me-2"></i> Dashboard
+        </div>
+        <span class="badge bg-info text-dark fw-semibold">NEW</span>
+      </a>
+    </li>
+
+    <li class="nav-item mb-1 cursor-pointer">
+      <a routerLink="/admin/contact-us" class="nav-link text-white ps-4">
+        <span>∙ Contact Us Master</span>
+      </a>
+    </li>
+
+    <li class="nav-item mb-1 cursor-pointer">
+      <a routerLink="/admin/career" class="nav-link text-white ps-4">
+        <span>∙ Career Master</span>
+      </a>
+    </li>
+
+    <li class="nav-item mt-2 cursor-pointer">
+      <a routerLink="/help" class="nav-link text-white d-flex justify-content-between align-items-center">
+        <div>
+          <i class="bi bi-table me-2"></i> Help
+        </div>
+        <span class="badge bg-info text-dark fw-semibold">NEW</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
 
   <!-- MAIN CONTENT WITH HEADER INSIDE -->
   <div class="flex-grow-1">
-    
+
     <!-- HEADER INSIDE MAIN -->
     <header class="bg-light d-flex justify-content-between align-items-center px-4 py-2 border-bottom">
       <div>

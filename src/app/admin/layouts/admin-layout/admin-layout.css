@@ -5,3 +5,17 @@
 .d-none {
   display: none !important;
 }
+
+.sidebar-nav .nav-link {
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-nav .nav-link:hover {
+  background-color: #2b2f36; /* dark hover effect */
+}
+
+.sidebar-nav .nav-link.active {
+  background-color: #1f232a;
+  font-weight: 500;
+}

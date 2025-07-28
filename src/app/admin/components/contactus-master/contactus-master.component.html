@@ -1,0 +1,36 @@
+<div class="container mt-4">
+  <div class="row align-items-center mb-3">
+    <div class="col-12 col-md-8">
+      <h5 class="fw-bold">{{ formTitle }}</h5>
+    </div>
+  </div>
+
+  <table class="table table-bordered table-hover">
+    <thead class="table-light">
+      <tr>
+        <th>#</th>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Selected Services</th>
+        <th>Message</th>
+        <!-- <th>Actions</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contact of contactList; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ contact.firstName }} {{ contact.lastName }}</td>
+        <td>{{ contact.email }}</td>
+        <td>{{ contact.phoneNumber }}</td>
+        <td>{{ contact.service }}</td>
+        <td>{{ contact.message }}</td>
+        <!-- <td>
+          <button class="btn btn-danger btn-sm" (click)="deleteContact(contact.id)">
+            <i class="bi bi-trash"></i> Delete
+          </button>
+        </td> -->
+      </tr>
+    </tbody>
+  </table>
+</div>

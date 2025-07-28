@@ -1,16 +1,15 @@
 <div class="login-wrapper d-flex justify-content-center align-items-center">
   <div class="login-card shadow">
     <h4 class="text-center mb-4 fw-bold">Welcome Back</h4>
-    <form #signInForm="ngForm" (ngSubmit)="onSubmit(signInForm)">
+    <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group mb-3">
         <div class="input-group">
           <input
             type="email"
             class="form-control border-start-0"
-            name="username"
+           formControlName="username"
             placeholder="Email"
             required
-            [(ngModel)]="loginData.username"
           />
         </div>
       </div>
@@ -20,10 +19,9 @@
           <input
             type="password"
             class="form-control border-start-0"
-            name="password"
+            formControlName="password"
             placeholder="Password"
             required
-            [(ngModel)]="loginData.password"
           />
         </div>
       </div>
@@ -31,7 +29,7 @@
       <button
         class="btn login-btn w-100 mb-3"
         type="submit"
-        [disabled]="signInForm.invalid"
+        [disabled]="loginForm.invalid"
       >
         Login
       </button>
