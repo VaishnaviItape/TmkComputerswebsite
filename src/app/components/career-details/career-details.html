@@ -1,38 +1,180 @@
- <div class="container py-5">
-            <div class="row align-items-center">
-                <!-- Left Content -->
-                <div class="col-lg-6 mb-5 mb-lg-0">
-                    <h1 class="display-3 fw-bold">
-                        Digital <span class="text-secondary">Transformation</span>
-                    </h1>
+<header class="sticky-top bg-dark border-bottom border-dark shadow-sm">
+    <nav class="container d-flex justify-content-between py-3">
+        <button class="navbar-brand  fw-bold fs-4 border-0 bg-transparent">TMK COMPUTERS</button>
+        <ul class="nav gap-3 d-none d-md-flex">
+            <li><a class="nav-link " href="#home">Home</a></li>
+            <li><a class="nav-link " href="#services">Services</a></li>
+            <li><a class="nav-link " [class.active]="activeSection === 'about'" href="#about">About Us</a></li>
+            <li><a class="nav-link " href="#contact">Contact Us</a></li>
+            <li><a class="nav-link " [class.active]="activeSection === 'career'" href="#career">Career</a></li>
+        </ul>
+        <button
+            class="btn btn-sm d-flex align-items-center gap-2 px-3 py-2 border-0 rounded-pill shadow-sm theme-toggle-button"
+            (click)="themeService.toggleTheme()">
+            <i class="bi"
+                [ngClass]="themeService.currentTheme === 'dark' ? 'bi-sun-fill text-warning' : 'bi-moon-fill text-dark'"></i>
 
-                    <p class="fst-italic  mt-4">
-                        “Silicon Valley is coming and if banks don’t up their game, then tech companies will take over
-                        the
-                        industry’s business.
-                        There are hundreds of startups with a lot of brains and money working on various alternatives to
-                        traditional
-                        banking”
-                    </p>
+            <span class="fw-semibold">
+                {{ themeService.currentTheme === 'dark' ? 'Light' : 'Dark' }} Mode
+            </span>
+        </button>
+    </nav>
+</header>
 
-                    <div class="mt-4">
-                        <p class="mb-1 fw-semibold">Jamie Dimon | Chairman, President</p>
-                        <p class="mb-1 fw-semibold">and CEO of JPMorgan Chase</p>
-                    </div>
+<div class="container py-5">
+  <div class="row align-items-center">
+    <!-- Left Content: Job Description -->
+    <div class="col-lg-6 mb-1 mb-lg-0 ">
+      <h1 class="display-5 fw-bold mb-4">UX Designer</h1>
 
-                    <div class="mt-4 d-flex gap-3">
-                        <button class="btn btn-outline-light fw-semibold px-4 py-2 rounded-pill">
-                            Get Started
-                        </button>
-                        <button class="btn btn-outline-light fw-semibold px-4 py-2 rounded-pill">
-                            Free Consultation
-                        </button>
-                    </div>
-                </div>
+      <div class="mb-4">
+        <h5 class="fw-semibold mb-3">Job Details</h5>
+        <ul class="list-unstyled">
+          <li><strong>Job Title:</strong> UI/UX Designer</li>
+          <li><strong>Location:</strong> Pune, Maharashtra (On-site)</li>
+          <li><strong>Job Type:</strong> Full-time, Permanent</li>
+          <li><strong>Salary:</strong> ₹5,00,000 – ₹7,00,000 per year</li>
+          <li><strong>Schedule:</strong> Day Shift, Monday to Friday</li>
+        </ul>
+      </div>
 
-                <!-- Right Content -->
-                <div class="col-lg-6 text-center">
-                    <img src="assets/Rocket.svg" alt="" style="max-width: 350px" />
-                </div>
+      <div class="mb-4">
+        <h5 class="fw-semibold mb-3">Benefits</h5>
+        <ul class="list-unstyled">
+          <li>✔️ Health Insurance</li>
+          <li>✔️ Provident Fund</li>
+          <li>✔️ Flexible Schedule</li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="fw-semibold mb-3">Job Overview</h5>
+        <p>
+          We are seeking a talented and creative UI/UX Designer with 5+ years of experience to join our team. You will collaborate with cross-functional teams to design intuitive and user-friendly interfaces for web and mobile applications. The ideal candidate is passionate about design, deeply understands user behavior, and has a track record of crafting seamless digital experiences.
+        </p>
+      </div>
+    </div>
+
+    <!-- Right Content: Rocket Image -->
+    <div class="col-lg-6 text-center">
+      <img src="assets/Rocket.svg" alt="Rocket Illustration" style="max-width: 350px" />
+    </div>
+  </div>
+</div>
+
+
+<section class="py-5" id="career">
+  <div class="container">
+    <!-- Key Responsibilities -->
+    <div class="mb-5">
+      <h4 class="fw-semibold mb-3">Key Responsibilities</h4>
+      <ul>
+        <li>Collaborate with product managers, developers, and stakeholders to define user requirements and business goals.</li>
+        <li>Conduct user research and usability testing.</li>
+        <li>Design wireframes, prototypes, user flows, and high-fidelity mockups.</li>
+        <li>Create and maintain design systems for consistency.</li>
+        <li>Iterate on designs based on feedback and testing results.</li>
+        <li>Stay updated with design trends and best practices.</li>
+        <li>Present and defend design decisions to stakeholders.</li>
+        <li>Work with developers to ensure accurate implementation.</li>
+        <li>Identify opportunities to enhance user experience.</li>
+        <li>Conduct research & analysis for project requirements.</li>
+        <li>Create structured project flow presentations.</li>
+        <li>Focus on detailed planning to minimize rework.</li>
+        <li>Develop domain-specific presentation decks.</li>
+      </ul>
+    </div>
+
+    <!-- Preferred Qualifications -->
+    <div class="mb-5">
+      <h4 class="fw-semibold mb-3">Preferred Qualifications</h4>
+      <ul>
+        <li>Basic knowledge of HTML, CSS, JavaScript (a plus).</li>
+        <li>Experience in designing for accessibility.</li>
+        <li>Familiarity with design systems and component libraries.</li>
+        <li>Bachelor’s degree in Design, HCI, or related field (or equivalent experience).</li>
+      </ul>
+    </div>
+
+    <!-- Why Join Us -->
+    <div class="mb-5">
+      <h4 class="fw-semibold mb-3">Why Join Us?</h4>
+      <ul>
+        <li>Work with a dynamic, innovative, and collaborative team.</li>
+        <li>Competitive salary and benefits.</li>
+        <li>Flexible working hours.</li>
+        <li>Growth and career advancement opportunities.</li>
+      </ul>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="d-flex gap-3">
+      <button class="btn btn-outline-light fw-semibold px-4 py-2 rounded-pill">
+        Apply Now
+      </button>
+      <a routerLink="/career" class="btn btn-outline-secondary fw-semibold px-4 py-2 rounded-pill">
+        Back To Career
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<footer class=" pt-5 pb-3">
+    <div class="container border-bottom border-secondary pb-4">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+            <h4 class="fw-bold mb-0">TMK COMPUTERS</h4>
+            <div class="d-flex align-items-center gap-3  small">
+                <span>Follow Us On Social Media</span>
+                <a href="#" class=""><i class="bi bi-linkedin fs-5"></i></a>
+                <a href="#" class=""><i class="bi bi-instagram fs-5"></i></a>
+                <a href="#" class=""><i class="bi bi-twitter fs-5"></i></a>
             </div>
         </div>
+    </div>
+
+    <div class="container py-4">
+        <div class="row">
+            <!-- Home -->
+            <div class="col-md-4 mb-4">
+                <h6 class="fw-semibold text-uppercase mb-3">Home</h6>
+                <ul class="list-unstyled  small">
+                    <li>Benefits</li>
+                    <li>Our Testimonials</li>
+                    <li>Partners</li>
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div class="col-md-4 mb-4">
+                <h6 class="fw-semibold text-uppercase mb-3">Services</h6>
+                <ul class="list-unstyled  small">
+                    <li>Costom software development</li>
+                    <li>Costom application development </li>
+                    <li>Website development</li>
+                    <li>Digital marketing</li>
+                </ul>
+            </div>
+
+            <!-- About Us -->
+            <div class="col-md-4 mb-4">
+                <h6 class="fw-semibold text-uppercase mb-3">About Us</h6>
+                <ul class="list-unstyled  small">
+                    <li>Our Team</li>
+                    <li>Achievements</li>
+                    <li>Awards</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div
+        class="container border-top border-secondary pt-3 d-flex flex-column flex-md-row justify-content-between small ">
+        <div>&copy;2025 TMK Computers Pvt. Ltd.</div>
+        <div>
+            <a href="#" class="text-decoration-none  me-3">Privacy Policy</a>
+            <a href="#" class="text-decoration-none  me-3">Terms & Conditions</a>
+            <a href="#" class="text-decoration-none ">Cookie Policy</a>
+        </div>
+    </div>
+</footer>

@@ -1,4 +1,4 @@
 export const environment = {
-  production: true,
-  apiUrl: 'https://api.example.com' // production API
+    production: true,
+    apiBaseUrl: 'http://amkore7-001-site1.ltempurl.com/'
 };

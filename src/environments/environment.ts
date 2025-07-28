@@ -1,4 +1,4 @@
 export const environment = {
-  production: false,
-  apiUrl: 'http://localhost:3000' // local json-server or dev API
+    production: false,
+    apiBaseUrl: 'http://amkore7-001-site1.ltempurl.com/'
 };

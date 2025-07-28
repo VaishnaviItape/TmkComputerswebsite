@@ -2,12 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { ObserveSectionDirective } from '../../service/observe-section.directive';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ThemeService } from '../../service/theme.service';
+import Swal from 'sweetalert2';
+import { ApiService } from '../../service/api.service';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterOutlet, CommonModule, ObserveSectionDirective, ReactiveFormsModule, RouterModule],
+  imports: [RouterOutlet, CommonModule, ObserveSectionDirective, ReactiveFormsModule,FormsModule, RouterModule],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
@@ -54,7 +56,7 @@ export class Home {
   ];
 
   services = [
-   {
+    {
       id: 'Custom software development',
       icon: 'assets/pc.svg',
       title: 'Custom Software Development',
@@ -80,31 +82,78 @@ export class Home {
     }
   ];
 
+    servicesList: string[] = [
+    'Epoxy Flooring and Coating',
+    'Epoxy Coving & Pencil coving',
+    'Polyurethane Flooring',
+    'Polyurethane Coating',
+    'Car Parking Flooring',
+    'Anti Corrosion Coatings',
+    'Anti Fungal wall Paints',
+    'Under Water tank Coatings'
+  ];
+
   activeSection = 'home';
   contactForm: FormGroup;
 
-  constructor(private fb: FormBuilder, public themeService: ThemeService) {
+  constructor(private fb: FormBuilder, public themeService: ThemeService,private api: ApiService,) {
     this.contactForm = this.fb.group({
-      name: ['', Validators.required],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', Validators.required],
-      service: ['', Validators.required],
-      company: [''],
+      phoneNumber: ['', Validators.required],
+      service: this.fb.array([], Validators.required),
       message: ['', Validators.required],
+      companyId: [0, Validators.required],
+      companyCode: ['', Validators.required],
     });
   }
 
-  submitForm() {
-    if (this.contactForm.valid) {
-      console.log(this.contactForm.value);
-      alert('Form Submitted Successfully!');
-      this.contactForm.reset();
-    } else {
-      alert('Please fill all required fields.');
+  onSubmit() {
+    if (this.contactForm.invalid) {
+      Swal.fire('Error', 'Please fill all required fields correctly.', 'error');
+      return;
     }
+ const rawValue = this.contactForm.value;
+
+  const payload = {
+    ...rawValue,
+    service: rawValue.service.join(', ') // ✅ create string without extra quotes
+  };
+    this.api.postDataApi('api/ContactUs/create', payload).subscribe({
+      next: () => {
+        Swal.fire('Success', 'Message sent successfully!', 'success');
+        this.contactForm.reset();
+      },
+      error: (err: any) => {
+        const message = err?.error?.message || 'Something went wrong.';
+        Swal.fire('Error', message, 'error');
+      }
+    });
   }
 
   onSectionChange(sectionId: string) {
     this.activeSection = sectionId;
+  }
+
+
+    selectedServices: string[] = [];
+
+  get serviceArray(): FormArray {
+    return this.contactForm.get('service') as FormArray;
+  }
+
+  onCheckboxChange(event: any): void {
+    const serviceArray = this.serviceArray;
+    const value = event.target.value;
+
+    if (event.target.checked) {
+      serviceArray.push(this.fb.control(value));
+    } else {
+      const index = serviceArray.controls.findIndex(x => x.value === value);
+      if (index >= 0) {
+        serviceArray.removeAt(index);
+      }
+    }
   }
 }
