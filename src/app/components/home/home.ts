@@ -9,7 +9,7 @@ import { ApiService } from '../../service/api.service';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterOutlet, CommonModule, ObserveSectionDirective, ReactiveFormsModule,FormsModule, RouterModule],
+  imports: [ CommonModule, ObserveSectionDirective, ReactiveFormsModule, FormsModule, RouterModule],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
@@ -82,7 +82,7 @@ export class Home {
     }
   ];
 
-    servicesList: string[] = [
+  servicesList: string[] = [
     'Epoxy Flooring and Coating',
     'Epoxy Coving & Pencil coving',
     'Polyurethane Flooring',
@@ -96,7 +96,7 @@ export class Home {
   activeSection = 'home';
   contactForm: FormGroup;
 
-  constructor(private fb: FormBuilder, public themeService: ThemeService,private api: ApiService,) {
+  constructor(private fb: FormBuilder, public themeService: ThemeService, private api: ApiService,) {
     this.contactForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -105,8 +105,8 @@ export class Home {
       service: ['', Validators.required],
       // service: this.fb.array([], Validators.required),
       message: ['', Validators.required],
-      companyId: [0, ],
-      companyCode: ['test'],
+      companyId: [1],
+      companyCode: ['tmk computers'],
     });
   }
 
@@ -115,12 +115,12 @@ export class Home {
       Swal.fire('Error', 'Please fill all required fields correctly.', 'error');
       return;
     }
- const rawValue = this.contactForm.value;
+    const rawValue = this.contactForm.value;
 
-  // const payload = {
-  //   ...rawValue,
-  //   service: rawValue.service.join(', ') // ✅ create string without extra quotes
-  // };
+    // const payload = {
+    //   ...rawValue,
+    //   service: rawValue.service.join(', ') // ✅ create string without extra quotes
+    // };
     this.api.postDataApi('api/ContactUs/create', rawValue).subscribe({
       next: () => {
         Swal.fire('Success', 'Message sent successfully!', 'success');
@@ -138,7 +138,7 @@ export class Home {
   }
 
 
-    selectedServices: string[] = [];
+  selectedServices: string[] = [];
 
   get serviceArray(): FormArray {
     return this.contactForm.get('service') as FormArray;

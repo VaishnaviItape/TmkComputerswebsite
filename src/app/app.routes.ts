@@ -6,7 +6,8 @@ import { DigitalJourneyDetails } from './components/digital-journey-details/digi
 import { Career } from './components/career/career';
 import { AboutUs } from './components/about-us/about-us';
 import { Login } from './auth/login/login';
-import { CareerThankYouComponent } from './components/career-thank-you/career-thank-you.component';
+import { CareersThankYou } from './components/shared/careers-thank-you/careers-thank-you';
+import { ApplyNow } from './components/shared/apply-now/apply-now';
 
 export const routes: Routes = [
 
@@ -19,7 +20,8 @@ export const routes: Routes = [
     { path: 'digital-journey-details/:id', component: DigitalJourneyDetails },
     { path: 'career', component: Career },
     { path: 'about-us', component: AboutUs },
-    { path: 'career-thank-you', component: CareerThankYouComponent },
+    { path: 'career-thank-you', component: CareersThankYou },
+    { path: 'apply-now', component: ApplyNow },
 
       {
     path: 'about-us',

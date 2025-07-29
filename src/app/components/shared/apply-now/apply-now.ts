@@ -1,19 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
-import { ThemeService } from '../../service/theme.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 import Swal from 'sweetalert2';
-import { ApiService } from '../../service/api.service';
+import { ApiService } from '../../../service/api.service';
+import { ThemeService } from '../../../service/theme.service';
 
 @Component({
-  selector: 'app-career',
+  selector: 'app-apply-now',
   imports: [RouterModule, CommonModule, ReactiveFormsModule],
-  templateUrl: './career.html',
-  styleUrl: './career.css'
+  templateUrl: './apply-now.html',
+  styleUrl: './apply-now.css'
 })
-export class Career {
-  jobForm!: FormGroup;
+export class ApplyNow {
+ jobForm!: FormGroup;
 
   constructor(private fb: FormBuilder, public themeService: ThemeService, private api: ApiService,
     private router: Router) { }
