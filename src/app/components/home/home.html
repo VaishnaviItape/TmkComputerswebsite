@@ -8,7 +8,7 @@
           Us</a></li>
       <li><a class="nav-link " [class.active]="activeSection === 'contact'" href="#contact">Contact Us</a></li>
       <li><a class="nav-link " routerLink="/career" [class.active]="activeSection === 'career'"
-          href="#career">Careers  a</a></li>
+          href="#career">Careers</a></li>
     </ul> 
     <button
       class="btn btn-sm d-flex align-items-center gap-2 px-3 py-2 border-0 rounded-pill shadow-sm theme-toggle-button"
@@ -17,9 +17,9 @@
       <i class="bi"
         [ngClass]="themeService.currentTheme === 'dark' ? 'bi-sun-fill text-warning' : 'bi-moon-fill text-dark'"></i>
 
-      <span class="fw-semibold">
+      <!-- <span class="fw-semibold">
         {{ themeService.currentTheme === 'dark' ? 'Light' : 'Dark' }} Mode
-      </span>
+      </span> -->
     </button>
   </nav>
 </header>
