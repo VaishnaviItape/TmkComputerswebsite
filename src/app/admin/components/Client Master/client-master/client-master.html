@@ -1,0 +1,76 @@
+<div class="container mt-4">
+  <div class="row align-items-center mb-3">
+    <div class="col-12 col-md-8">
+      <h5 class="fw-bold">{{ formTitle }}</h5>
+    </div>
+    <div class="col-12 col-md-4 d-flex justify-content-md-end mt-2 mt-md-0">
+      <button type="button" class="btn btn-primary" (click)="addClient()">
+        <i class="bi bi-plus"></i> Add New Client
+      </button>
+    </div>
+  </div>
+
+  <table class="table table-bordered table-hover">
+    <thead class="table-light">
+      <tr>
+        <th>Action</th>
+        <th>Company</th>
+        <th>Brand</th>
+        <th>Code</th>
+        <th>URL</th>
+        <th>Contact Person</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th>Admin Username</th>
+        <th>Password</th>
+        <!-- <th>Image</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of clientList">
+        <td>
+          <button class="btn btn-sm btn-primary me-1" (click)="edit(item)">Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="delete(item)">Delete</button>
+        </td>
+        <td>{{ item.companyName }}</td>
+        <td>{{ item.brand }}</td>
+        <td>{{ item.clientCode }}</td>
+        <td><a [href]="item.url" target="_blank">{{ item.url }}</a></td>
+        <td>{{ item.contactName }}</td>
+        <td>{{ item.contactMobile }}</td>
+        <td>{{ item.contactEmail }}</td>
+        <td>{{ item.adminUsername }}</td>
+        <td>
+          <div class="d-flex align-items-center">
+            <input
+              [type]="item.showPassword ? 'text' : 'password'"
+              [value]="item.adminPassword"
+              class="form-control form-control-sm"
+              readonly />
+            <button
+              type="button"
+              class="btn btn-sm btn-outline-secondary ms-1"
+              (click)="item.showPassword = !item.showPassword">
+              <i class="bi" [ngClass]="item.showPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+            </button>
+          </div>
+        </td>
+        <!-- <td>
+          <img *ngIf="item.imageUrl" [src]="item.imageUrl" alt="Client Logo" width="80" class="img-thumbnail" />
+          <span *ngIf="!item.imageUrl">-</span>
+        </td> -->
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Drawer -->
+<div class="offcanvas offcanvas-end" [class.show]="drawerVisible" [style.visibility]="drawerVisible ? 'visible' : 'hidden'" style="width: 500px;">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">{{ drawerTitle }}</h5>
+    <button type="button" class="btn-close" (click)="closeDrawer()"></button>
+  </div>
+  <div class="offcanvas-body p-2">
+    <app-client-drawer [drawerClose]="closeCallback" [drawerVisible]="drawerVisible"></app-client-drawer>
+  </div>
+</div>
