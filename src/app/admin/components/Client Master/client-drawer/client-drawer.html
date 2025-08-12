@@ -1,48 +1,47 @@
 <form #clientForm="ngForm">
   <div class="mb-2">
-    <label class="form-label">Company Name</label>
-    <input class="form-control" name="companyName" [(ngModel)]="clientData.companyName" required />
+    <label class="form-label">First Name</label>
+    <input class="form-control" name="firstName" [(ngModel)]="clientData.firstName" />
   </div>
+
   <div class="mb-2">
-    <label class="form-label">Brand</label>
-    <input class="form-control" name="brand" [(ngModel)]="clientData.brand" />
+    <label class="form-label">Last Name</label>
+    <input class="form-control" name="lastName" [(ngModel)]="clientData.lastName" />
   </div>
-  <div class="mb-2">
-    <label class="form-label">Client Code</label>
-    <input class="form-control" name="clientCode" [(ngModel)]="clientData.clientCode" />
-  </div>
-  <div class="mb-2">
-    <label class="form-label">URL</label>
-    <input class="form-control" name="url" [(ngModel)]="clientData.url" />
-  </div>
-  <div class="mb-2">
-    <label class="form-label">Contact Name</label>
-    <input class="form-control" name="contactName" [(ngModel)]="clientData.contactName" />
-  </div>
-  <div class="mb-2">
-    <label class="form-label">Mobile</label>
-    <input class="form-control" name="contactMobile" [(ngModel)]="clientData.contactMobile" />
-  </div>
+
   <div class="mb-2">
     <label class="form-label">Email</label>
-    <input class="form-control" name="contactEmail" [(ngModel)]="clientData.contactEmail" />
+    <input class="form-control" type="email" name="email" [(ngModel)]="clientData.email" />
   </div>
+
   <div class="mb-2">
-    <label class="form-label">Admin Username</label>
-    <input class="form-control" name="adminUsername" [(ngModel)]="clientData.adminUsername" />
+    <label class="form-label">Phone</label>
+    <input class="form-control" name="phone" [(ngModel)]="clientData.phone" />
   </div>
+
   <div class="mb-2">
-    <label class="form-label">Admin Password</label>
-    <input class="form-control" type="password" name="adminPassword" [(ngModel)]="clientData.adminPassword" />
+    <label class="form-label">Website URL</label>
+    <input class="form-control" name="websiteUrl" [(ngModel)]="clientData.websiteUrl" />
   </div>
-  <!-- <div class="mb-2">
-    <label class="form-label">Upload Logo</label>
-    <input type="file" class="form-control" (change)="onFileSelected($event)" />
-    <img *ngIf="previewImage" [src]="previewImage" class="img-thumbnail mt-2" width="100" />
-  </div> -->
+
+  <div class="mb-2">
+    <label class="form-label">Company Code</label>
+    <input class="form-control" name="companyCode" [(ngModel)]="clientData.companyCode" />
+  </div>
+
+  <div class="mb-2">
+    <label class="form-label">Company Name</label>
+    <input class="form-control" name="companyName" [(ngModel)]="clientData.companyName" />
+  </div>
+
+  <div class="mb-2">
+    <label class="form-label">Company ID</label>
+    <input class="form-control" type="number" name="companyId" [(ngModel)]="clientData.companyId" />
+  </div>
 
   <div class="d-flex justify-content-end mt-3">
     <button type="button" class="btn btn-secondary me-2" (click)="drawerClose()">Cancel</button>
     <button type="button" class="btn btn-primary" (click)="save(clientForm)">Save</button>
   </div>
 </form>
+

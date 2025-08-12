@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class CareerMasterComponent implements OnInit {
 
-  formTitle = "Contact Us Master"
+  formTitle = "career Master"
   apiKey: string = 'api/Career';
   careertList: any = [];
   http: any;

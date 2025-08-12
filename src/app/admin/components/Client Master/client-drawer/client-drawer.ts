@@ -6,32 +6,30 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-client-drawer',
-  imports: [ CommonModule,
+  imports: [CommonModule,
     FormsModule,],
   templateUrl: './client-drawer.html',
   styleUrl: './client-drawer.css'
 })
 export class ClientDrawer {
- @Input() drawerVisible: boolean = false;
-  @Input() drawerClose: () => void = () => {};
+  @Input() drawerVisible: boolean = false;
+  @Input() drawerClose: () => void = () => { };
 
   clientData: any = {
     id: 0,
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    websiteUrl: '',
+    companyCode: '',
     companyName: '',
-    brand: '',
-    clientCode: '',
-    url: '',
-    contactName: '',
-    contactMobile: '',
-    contactEmail: '',
-    adminUsername: '',
-    adminPassword: '',
-    image: null,
+    companyId: 0
   };
 
   previewImage: string | ArrayBuffer | null = null;
 
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService) { }
 
   onFileSelected(event: any): void {
     const file = event.target.files[0];
@@ -44,8 +42,8 @@ export class ClientDrawer {
   }
 
   save(form: any): void {
-    if (!this.clientData.companyName.trim()) {
-      Swal.fire('Error', 'Company name is required', 'error');
+    if (!this.clientData.firstName.trim()) {
+      Swal.fire('Error', 'First name is required', 'error');
       return;
     }
 
@@ -56,7 +54,7 @@ export class ClientDrawer {
       }
     }
 
-    this.api.postDataApi('api/ClientMaster/save', formData).subscribe({
+    this.api.postDataApi('api/Client/create', formData).subscribe({
       next: () => {
         Swal.fire('Success', 'Client saved successfully', 'success');
         this.drawerClose();

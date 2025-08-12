@@ -24,7 +24,7 @@ export class ClientMaster {
   }
 
   getData(): void {
-    this.api.getDataApi('api/ClientMaster').subscribe((res: any[]) => {
+    this.api.getDataApi('api/Client').subscribe((res: any[]) => {
       this.clientList = res.map(item => ({ ...item, showPassword: false }));
     });
   }

@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": "dist/TMK_COMPUTERS_MAIN",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -35,6 +36,7 @@
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           },
+
           "configurations": {
             "production": {
               "budgets": [
@@ -100,3 +102,4 @@
     "analytics": "c2dadb56-33dd-4058-a297-991ec0bd2eca"
   }
 }
+
