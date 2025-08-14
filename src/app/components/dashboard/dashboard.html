@@ -1,1 +1,72 @@
-<p>dashboard works!</p>
+<div class="row">
+  <div class="col-md-4">
+    <div class="card p-3 text-center shadow-sm">
+      <h5>Total Visitors</h5>
+      <h2>{{ totalVisitors }}</h2>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card p-3 text-center shadow-sm">
+      <h5>Total Companies</h5>
+      <h2>{{ totalCompanies }}</h2>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card p-3 text-center shadow-sm">
+      <h5>Total Clients</h5>
+      <h2>{{ totalClients }}</h2>
+    </div>
+  </div>
+</div>
+
+<!-- Chart + Latest Applicants -->
+<div class="row mt-4">
+  <!-- Pie Chart Section -->
+  <div class="col-md-6">
+    <div class="card p-3 shadow-sm text-center">
+      <h5 class="mb-3">Company-wise Inquiries</h5>
+
+      <div *ngIf="isChartLoading" class="d-flex justify-content-center align-items-center" style="height:300px;">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+
+      <div *ngIf="!isChartLoading" class="d-flex justify-content-center">
+        <canvas id="inquiriesPieChart" style="width:100%; height:400px;"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Latest Applicants Section -->
+  <div class="col-md-6">
+    <div class="card p-3 shadow-sm">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="mb-0">Latest Applicants</h5>
+        <button class="btn btn-sm btn-primary" (click)="goToCareer()">See All</button>
+      </div>
+
+      <table class="table table-bordered table-hover">
+        <thead class="table-light">
+          <tr>
+            <th>#</th>
+            <th>Full Name</th>
+            <th>Job Position</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let applicant of latestApplicants; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ applicant.firstName }} {{ applicant.lastName }}</td>
+            <td>{{ applicant.jobPosition }}</td>
+          </tr>
+          <tr *ngIf="latestApplicants.length === 0">
+            <td colspan="3" class="text-center text-muted">No applicants found</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

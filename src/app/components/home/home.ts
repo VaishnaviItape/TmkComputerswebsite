@@ -157,4 +157,21 @@ export class Home {
       }
     }
   }
+
+  totalVisitors: number = 0;
+
+ngOnInit() {
+  // Get stored count
+  let visitors = localStorage.getItem('totalVisitors');
+
+  if (visitors) {
+    this.totalVisitors = parseInt(visitors, 10) + 1;
+  } else {
+    this.totalVisitors = 1; // first visit
+  }
+
+  // Save updated count
+  localStorage.setItem('totalVisitors', this.totalVisitors.toString());
+}
+
 }

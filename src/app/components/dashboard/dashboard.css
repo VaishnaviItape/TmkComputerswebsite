@@ -1,0 +1,5 @@
+#inquiriesPieChart {
+  width: 100% !important; /* will adapt inside its container */
+  max-width: 360px;       /* control max width */
+  height: 400px !important;
+}
