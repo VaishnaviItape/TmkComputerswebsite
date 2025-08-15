@@ -1,0 +1,151 @@
+<form #jobForm="ngForm">
+  <!-- Job Title -->
+  <div class="mb-2">
+    <label class="form-label">Job Title*</label>
+    <input
+      class="form-control"
+      name="jobTitle"
+      [(ngModel)]="jobData.jobTitle"
+      required
+    />
+  </div>
+
+  <!-- Department -->
+  <div class="mb-2">
+    <label class="form-label">Department</label>
+    <input
+      class="form-control"
+      name="department"
+      [(ngModel)]="jobData.department"
+    />
+  </div>
+
+  <!-- Location -->
+  <div class="mb-2">
+    <label class="form-label">Location</label>
+    <input
+      class="form-control"
+      name="location"
+      [(ngModel)]="jobData.location"
+    />
+  </div>
+
+  <!-- Employment Type -->
+  <div class="mb-2">
+    <label class="form-label">Employment Type</label>
+    <select
+      class="form-select"
+      name="employmentType"
+      [(ngModel)]="jobData.employmentType"
+    >
+      <option value="">Select</option>
+      <option>Full-Time</option>
+      <option>Part-Time</option>
+      <option>Contract</option>
+      <option>Internship</option>
+    </select>
+  </div>
+
+  <!-- Experience Required -->
+  <div class="mb-2">
+    <label class="form-label">Experience Required</label>
+    <input
+      class="form-control"
+      name="experienceRequired"
+      [(ngModel)]="jobData.experienceRequired"
+      placeholder="e.g., 2-4 years"
+    />
+  </div>
+
+  <!-- Skills Required -->
+  <div class="mb-2">
+    <label class="form-label">Skills Required</label>
+    <input
+      class="form-control"
+      name="skillsRequired"
+      [(ngModel)]="jobData.skillsRequired"
+      placeholder="e.g., Angular, TypeScript, REST APIs"
+    />
+  </div>
+
+  <!-- Qualification -->
+  <div class="mb-2">
+    <label class="form-label">Qualification</label>
+    <input
+      class="form-control"
+      name="qualification"
+      [(ngModel)]="jobData.qualification"
+      placeholder="e.g., B.Tech in Computer Science, MCA"
+    />
+  </div>
+
+  <!-- Salary Range -->
+  <div class="mb-2">
+    <label class="form-label">Salary Range</label>
+    <input
+      class="form-control"
+      name="salaryRange"
+      [(ngModel)]="jobData.salaryRange"
+      placeholder="e.g., ₹4,00,000 - ₹6,00,000 per annum"
+    />
+  </div>
+
+  <!-- Number of Openings -->
+  <div class="mb-2">
+    <label class="form-label">Number of Openings</label>
+    <input
+      type="number"
+      class="form-control"
+      name="numberOfOpenings"
+      [(ngModel)]="jobData.numberOfOpenings"
+      min="1"
+    />
+  </div>
+
+  <!-- Dates -->
+  <div class="row">
+    <div class="col-md-6 mb-2">
+      <label class="form-label">Posted Date</label>
+      <input
+        type="date"
+        class="form-control"
+        name="postedDate"
+        [(ngModel)]="jobData.postedDate"
+      />
+    </div>
+    <div class="col-md-6 mb-2">
+      <label class="form-label">Closing Date</label>
+      <input
+        type="date"
+        class="form-control"
+        name="closingDate"
+        [(ngModel)]="jobData.closingDate"
+      />
+    </div>
+  </div>
+
+  <!-- Job Description -->
+  <div class="mb-2">
+    <label class="form-label">Job Description</label>
+    <textarea
+      class="form-control"
+      rows="4"
+      name="jobDescription"
+      [(ngModel)]="jobData.jobDescription"
+    ></textarea>
+  </div>
+
+  <!-- Buttons -->
+  <div class="d-flex justify-content-end mt-3">
+    <button
+      type="button"
+      class="btn btn-secondary me-2"
+      (click)="drawerClose()"
+    >
+      Cancel
+    </button>
+    <button type="button" class="btn btn-primary" (click)="save(jobForm)">
+      Save
+    </button>
+  </div>
+</form>

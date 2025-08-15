@@ -1,0 +1,127 @@
+<div class="container mt-4">
+  <div class="row align-items-center mb-3">
+    <div class="col-12 col-md-8">
+      <h5 class="fw-bold">{{ formTitle }}</h5>
+    </div>
+    <div class="col-12 col-md-4 d-flex justify-content-md-end mt-2 mt-md-0">
+      <button type="button" class="btn btn-primary" (click)="addJob()">
+        <i class="bi bi-plus"></i> Add New Job
+      </button>
+    </div>
+  </div>
+
+  <table class="table table-bordered table-hover align-middle">
+    <thead class="table-light">
+      <tr>
+        <th style="width: 100px">Action</th>
+        <th>Job Title</th>
+        <th>Department</th>
+        <th>Location</th>
+        <th>Type</th>
+        <th>Experience</th>
+        <th>Skills Required</th>
+        <th>Salary</th>
+        <th>Posted Date</th>
+        <th>Closing Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let job of getPaginatedJobs()">
+        <td class="d-flex gap-2">
+          <button
+            class="btn btn-sm btn-outline-primary"
+            (click)="edit(job)"
+            title="Edit"
+          >
+            <i class="bi bi-pencil"></i>
+          </button>
+          <button
+            class="btn btn-sm btn-outline-danger"
+            (click)="delete(job)"
+            title="Delete"
+          >
+            <i class="bi bi-trash"></i>
+          </button>
+        </td>
+        <td>{{ job.jobTitle }}</td>
+        <td>{{ job.department }}</td>
+        <td>{{ job.location }}</td>
+        <td>{{ job.employmentType }}</td>
+        <td>{{ job.experienceRequired }}</td>
+        <td>{{ job.skillsRequired }}</td>
+        <td>{{ job.salaryRange }}</td>
+        <td>{{ job.postedDate | date : "dd-MMM-yyyy" }}</td>
+        <td>{{ job.closingDate | date : "dd-MMM-yyyy" }}</td>
+      </tr>
+
+      <tr *ngIf="getPaginatedJobs().length === 0">
+        <td colspan="10" class="text-center text-muted">No data available</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Pagination -->
+  <div class="d-flex flex-wrap justify-content-between align-items-center mt-3">
+    <nav>
+      <ul class="pagination mb-0">
+        <li class="page-item" [class.disabled]="page === 1">
+          <button class="page-link" (click)="setPage(page - 1)">Prev</button>
+        </li>
+
+        <li
+          class="page-item"
+          *ngFor="let p of [].constructor(totalPages); let idx = index"
+          [class.active]="page === idx + 1"
+        >
+          <button class="page-link" (click)="setPage(idx + 1)">
+            {{ idx + 1 }}
+          </button>
+        </li>
+
+        <li class="page-item" [class.disabled]="page === totalPages">
+          <button class="page-link" (click)="setPage(page + 1)">Next</button>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="d-flex align-items-center gap-3">
+      <div class="text-muted small">
+        Showing <strong>{{ (page - 1) * pageSize + 1 }}</strong> -
+        <strong>{{ Math.min(page * pageSize, totalRecords) }}</strong>
+        of <strong>{{ totalRecords }}</strong> records
+      </div>
+
+      <select
+        class="form-select"
+        style="width: auto"
+        [value]="pageSize"
+        (change)="onPageSizeChange($event)"
+      >
+        <option value="10">10 items per page</option>
+        <option value="25">25 items per page</option>
+        <option value="50">50 items per page</option>
+        <option value="100">100 items per page</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- Drawer -->
+<div
+  class="offcanvas offcanvas-end"
+  [class.show]="drawerVisible"
+  [style.visibility]="drawerVisible ? 'visible' : 'hidden'"
+  style="width: 650px"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">{{ drawerTitle }}</h5>
+    <button type="button" class="btn-close" (click)="closeDrawer()"></button>
+  </div>
+  <div class="offcanvas-body p-2">
+    <app-job-opening-drawer
+      [drawerClose]="closeCallback"
+      [drawerVisible]="drawerVisible"
+    >
+    </app-job-opening-drawer>
+  </div>
+</div>
