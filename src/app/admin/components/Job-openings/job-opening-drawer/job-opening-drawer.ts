@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import Swal from 'sweetalert2';
 import { ApiService } from '../../../../service/api.service';
 import { CommonModule } from '@angular/common';
@@ -10,54 +10,82 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './job-opening-drawer.html',
   styleUrl: './job-opening-drawer.css',
 })
-export class JobOpeningDrawer {
+export class JobOpeningDrawer implements OnChanges {
   @Input() drawerVisible: boolean = false;
-  @Input() drawerClose: () => void = () => {};
+  @Input() drawerClose: () => void = () => { };
+  @Input() editData: any = null; // parent will pass selected job
 
   jobData: any = {
     id: 0,
-    jobTitle: '',
-    department: '',
+    position: '',
     location: '',
-    employmentType: '',
-    experienceRequired: '',
-    salaryRange: '',
-    postedDate: '',
-    closingDate: '',
-    jobDescription: '',
-    numberOfOpenings: 1,
-    qualification: '',
+    numberOfPositions: 0,
+    experienceText: '',
+    responsibilities: '',
+    requiredSkills: '',
+    eligibility: '',
+    isActive: true,
   };
 
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService) { }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['editData'] && this.editData) {
+      // edit mode → prefill with selected job
+      this.jobData = { ...this.editData };
+    } else if (changes['drawerVisible'] && !this.drawerVisible) {
+      // reset when drawer closes
+      this.resetForm();
+    }
+  }
 
   save(form: any): void {
-    if (!this.jobData.jobTitle.trim()) {
-      Swal.fire('Error', 'Job title is required', 'error');
+    if (!this.jobData.position.trim()) {
+      Swal.fire('Error', 'Position is required', 'error');
       return;
     }
 
-    const formData = new FormData();
-    for (const key in this.jobData) {
-      if (this.jobData[key] !== null) {
-        formData.append(key, this.jobData[key]);
-      }
+    if (this.jobData.id && this.jobData.id > 0) {
+      // UPDATE
+      this.api.updateDataApi('api/JobOpening/update', this.jobData, this.jobData.id).subscribe({
+        next: () => {
+          Swal.fire('Success', 'Job updated successfully', 'success');
+          this.drawerClose();
+        },
+        error: (err) => {
+          Swal.fire('Error', err?.message || 'Error updating job', 'error');
+        },
+      });
+    } else {
+      // CREATE
+      this.api.postDataApi('api/JobOpening/create', this.jobData).subscribe({
+        next: () => {
+          Swal.fire('Success', 'Job created successfully', 'success');
+          this.drawerClose();
+          form.resetForm();
+        },
+        error: (err) => {
+          Swal.fire('Error', err?.message || 'Error saving job', 'error');
+        },
+      });
     }
-
-    this.api.postDataApi('api/JobOpening/create', formData).subscribe({
-      next: () => {
-        Swal.fire('Success', 'Job opening saved successfully', 'success');
-        this.drawerClose();
-        form.resetForm();
-      },
-      error: (err) => {
-        Swal.fire('Error', err?.message || 'Error saving job opening', 'error');
-      },
-    });
   }
 
-  clearForm(form: any): void {
-    form.resetForm();
-    this.jobData = {};
+  cancel(): void {
+    this.drawerClose();
+  }
+
+  private resetForm() {
+    this.jobData = {
+      id: 0,
+      position: '',
+      location: '',
+      numberOfPositions: 0,
+      experienceText: '',
+      responsibilities: '',
+      requiredSkills: '',
+      eligibility: '',
+      isActive: true,
+    };
   }
 }
