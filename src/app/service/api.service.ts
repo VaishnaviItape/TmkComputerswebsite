@@ -63,11 +63,18 @@ export class ApiService {
     return this.http.put(this.baseUrl + type + '/' + id, data, { headers });
   }
   deleteDataApi(type: any, data: any): Observable<any> {
-    return this.http.delete(this.baseUrl + type + '/' + data);
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    const token = sessionStorage.getItem('authToken');
+    if (token) {
+      headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+    return this.http.delete(this.baseUrl + type + '/' + data, { headers });
   }
   deleteSpocDataApi(url: string, id: string): Observable<string> {
     const apiUrl = `${this.baseUrl}${url}/${id}`;
-    return this.http.delete(apiUrl, { responseType: 'text' });
+    return this.http.delete(apiUrl, { responseType: 'text' },);
   }
 
 

@@ -2,13 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { ThemeService } from '../../service/theme.service';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { ApiService } from '../../service/api.service';
 
 @Component({
   selector: 'app-career',
-  imports: [RouterModule, CommonModule, ReactiveFormsModule],
+  imports: [RouterModule, CommonModule, ReactiveFormsModule,FormsModule       ],
   templateUrl: './career.html',
   styleUrl: './career.css'
 })
@@ -20,11 +20,23 @@ export class Career {
 
 
   jobOpenings: any[] = [];
+  activeJobs:any[]=[];
+
+ 
+  loading: boolean = false;
 
   getData(): void {
-    this.api.getDataApi('api/JobOpening/all').subscribe((res: any[]) => {
-      this.jobOpenings = res;
-
+    this.loading = true; // start loader
+    this.api.getDataApi("api/JobOpening/all").subscribe({
+      next: (res: any) => {
+        this.jobOpenings =res.filter((job: any) => job.isActive);
+      },
+      error: (err) => {
+        console.error(err);
+      },
+      complete: () => {
+        this.loading = false; // stop loader
+      }
     });
   }
   scrollToSection(sectionId: string) {
@@ -51,6 +63,7 @@ export class Career {
       resumeUrl: [''],
     });
     this.getData();
+
   }
 
 

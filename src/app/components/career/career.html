@@ -80,8 +80,13 @@
     <!-- Open Positions -->
     <h3 class="text-center fw-bold mb-4">Open Positions at TMK Computers</h3>
     <div class="row text-center mb-5">
+      <div *ngIf="loading" class="col-12 my-5">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
       <div class="col-md-4 mb-3" *ngFor="let job of jobOpenings">
-        <div class="border rounded py-4 px-3 bg-dark text-white">
+        <div class="border rounded py-4 px-3 bg-dark text-white" *ngIf="job.isActive">
 
           <!-- Badges -->
           <div class="mb-2">
