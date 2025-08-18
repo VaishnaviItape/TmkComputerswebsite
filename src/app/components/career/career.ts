@@ -19,7 +19,18 @@ export class Career {
     private router: Router) { }
 
 
+  jobOpenings: any[] = [];
 
+  getData(): void {
+    this.api.getDataApi('api/JobOpening/all').subscribe((res: any[]) => {
+      this.jobOpenings = res;
+
+    });
+  }
+  scrollToSection(sectionId: string) {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    this.activeSection = sectionId;
+  }
 
   ngOnInit(): void {
     this.jobForm = this.fb.group({
@@ -39,42 +50,43 @@ export class Career {
       expectedCTC: ['tset'],
       resumeUrl: [''],
     });
+    this.getData();
   }
 
 
 
-onSubmit() {
-  if (this.jobForm.invalid) {
-    Swal.fire('Error', 'Please fill all required fields correctly.', 'error');
-    return;
-  }
-
-  const payload = this.jobForm.value;
-
-  this.api.postDataApi('/api/Career/create', payload).subscribe({
-    next: () => {
-      Swal.fire('Success', 'Message sent successfully!', 'success');
-      this.jobForm.reset();
-      this.router.navigate(['/career-thank-you']);
-    },
-    error: (err) => {
-      const message = err?.error?.message || 'Something went wrong.';
-      Swal.fire('Error', message, 'error');
+  onSubmit() {
+    if (this.jobForm.invalid) {
+      Swal.fire('Error', 'Please fill all required fields correctly.', 'error');
+      return;
     }
-  });
-}
 
-onResumeChange(event: Event) {
-  const input = event.target as HTMLInputElement;
-  if (input.files && input.files.length > 0) {
-    const file = input.files[0];
-    this.jobForm.patchValue({ resume: file });
+    const payload = this.jobForm.value;
+
+    this.api.postDataApi('/api/Career/create', payload).subscribe({
+      next: () => {
+        Swal.fire('Success', 'Message sent successfully!', 'success');
+        this.jobForm.reset();
+        this.router.navigate(['/career-thank-you']);
+      },
+      error: (err) => {
+        const message = err?.error?.message || 'Something went wrong.';
+        Swal.fire('Error', message, 'error');
+      }
+    });
   }
-}
+
+  onResumeChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      this.jobForm.patchValue({ resume: file });
+    }
+  }
 
 
-activeSection = 'career';
-onSectionChange(sectionId: string) {
-  this.activeSection = sectionId;
-}
+  activeSection = 'career';
+  onSectionChange(sectionId: string) {
+    this.activeSection = sectionId;
+  }
 }

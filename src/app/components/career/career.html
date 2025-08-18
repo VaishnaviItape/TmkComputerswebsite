@@ -80,48 +80,40 @@
     <!-- Open Positions -->
     <h3 class="text-center fw-bold mb-4">Open Positions at TMK Computers</h3>
     <div class="row text-center mb-5">
-      <div class="col-md-4 mb-3">
-        <div class="border rounded py-4 px-3 bg-dark">
+      <div class="col-md-4 mb-3" *ngFor="let job of jobOpenings">
+        <div class="border rounded py-4 px-3 bg-dark text-white">
+
+          <!-- Badges -->
           <div class="mb-2">
             <span class="badge bg-secondary me-1">Fulltime</span>
             <span class="badge bg-secondary me-1">Onsite</span>
             <span class="badge bg-secondary">₹20,000</span>
           </div>
-          <h5 class="fw-semibold mb-1">UX Designer</h5>
-          <p class="text-secondary mb-3">Exp: 1-2 Years</p>
-          <button class="btn btn-outline-light" [routerLink]="'/career-details'" target="_blank">Apply</button>
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="border rounded py-4 px-3 bg-dark">
-          <div class="mb-2">
-            <span class="badge bg-secondary me-1">Fulltime</span>
-            <span class="badge bg-secondary me-1">Onsite</span>
-            <span class="badge bg-secondary">₹20,000</span>
-          </div>
-          <h5 class="fw-semibold mb-1">Flutter Developer</h5>
-          <p class="text-secondary mb-3">Exp: 1-2 Years</p>
-          <button class="btn btn-outline-light" [routerLink]="'/career-details'" target="_blank">Apply</button>
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="border rounded py-4 px-3 bg-dark">
-          <div class="mb-2">
-            <span class="badge bg-secondary me-1">Fulltime</span>
-            <span class="badge bg-secondary me-1">Onsite</span>
-            <span class="badge bg-secondary" [routerLink]="'/career-details'" target="_blank">₹20,000</span>
-          </div>
-          <h5 class="fw-semibold mb-1">.Net</h5>
-          <p class="text-secondary mb-3">Exp: 1-2 Years</p>
-          <button class="btn btn-outline-light" [routerLink]="'/career-details'" target="_blank">Apply</button>
+
+          <!-- Job Position -->
+          <h5 class="fw-semibold mb-1">{{ job.position }}</h5>
+
+          <!-- Experience -->
+          <p class="text-secondary mb-3">Exp: {{ job.experienceText }} Years</p>
+
+          <!-- Apply Button -->
+          <button class="btn btn-outline-light" [class.active]="activeSection === 'applyForm'"
+            (click)="scrollToSection('applyForm')">
+            Apply
+          </button>
+
+
         </div>
       </div>
     </div>
 
+
+
     <!-- Apply Now Form -->
-    <h3 class="text-center fw-bold mb-4">
+    <h3 id="applyForm" class="text-center fw-bold mb-4">
       Apply <span class="text-secondary">Now</span> and Join Our Team
     </h3>
+
     <p class="text-center mb-4">
       Be a part of TMK Computers and help build the future of digital innovation.
     </p>
@@ -159,13 +151,13 @@
 
         <div class="col-md-4">
           <label class="form-label">Resume Upload</label>
-          <input type="file" class="form-control border-secondary" formControlName="resumeUrl"  />
+          <input type="file" class="form-control border-secondary" formControlName="resumeUrl" />
         </div>
 
         <div class="col-md-6">
           <label class="form-label">Experience</label>
           <select class="form-select border-secondary" formControlName="experience">
-          <option value="0">0-1 Years</option>
+            <option value="0">0-1 Years</option>
             <option value="1">1-3 Years</option>
             <option value="3">3+ Years</option>
           </select>

@@ -24,7 +24,7 @@ export class JobOpeningMaster {
   totalRecords = 0;
   totalPages = 0;
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService) {}
 
   ngOnInit(): void {
     this.getData();
@@ -69,8 +69,6 @@ export class JobOpeningMaster {
   }
 
   delete(item: any): void {
-    const token = localStorage.getItem('authToken'); // or however you store token
-
     Swal.fire({
       title: 'Are you sure?',
       text: 'This will delete the job permanently.',
@@ -79,7 +77,7 @@ export class JobOpeningMaster {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.api.deleteDataApi(`api/JobOpening/delete`, item.id, token).subscribe({
+        this.api.deleteDataApi(`api/JobOpening/delete`, `${item.id}`).subscribe({
           next: () => {
             Swal.fire('Deleted!', 'Job has been deleted.', 'success');
             this.getData();
